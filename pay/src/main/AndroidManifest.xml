@@ -1,0 +1,26 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.yang.yunwang.pay">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.yang.yunwang.pay.view.scan.ScanCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.pay.view.scan.ScanResultActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.pay.view.qr.QRCodeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+    </application>
+
+</manifest>

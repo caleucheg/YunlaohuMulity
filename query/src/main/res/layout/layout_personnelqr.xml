@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rel_qr_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/qr_background">
+
+        <ImageView
+            android:id="@+id/image_qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_qr_smart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/rel_qr_area"
+        android:layout_alignStart="@+id/rel_qr_area"
+        android:layout_below="@id/rel_qr_area"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/material_button_grey"
+        android:text="@string/personel_qr_samrt"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/text_size_16sp" />
+
+    <Button
+        android:id="@+id/btn_qr_wx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/rel_qr_area"
+        android:layout_alignStart="@+id/rel_qr_area"
+        android:layout_below="@id/btn_qr_smart"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/material_button_grey"
+        android:text="@string/personel_qr_wx"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/text_size_16sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_qr_zfb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/rel_qr_area"
+        android:layout_alignStart="@+id/rel_qr_area"
+        android:layout_below="@id/btn_qr_wx"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/material_button_grey"
+        android:text="@string/personel_qr_zfb"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/text_size_16sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_qr_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/rel_qr_area"
+        android:layout_alignStart="@+id/rel_qr_area"
+        android:layout_below="@id/btn_qr_zfb"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/material_button_grey"
+        android:text="@string/personel_qr_check"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/text_size_16sp" />
+
+    <Button
+        android:id="@+id/btn_qr_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/rel_qr_area"
+        android:layout_alignStart="@+id/rel_qr_area"
+        android:layout_below="@id/btn_qr_check"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@drawable/material_button_grey"
+        android:text="@string/personel_qr_delete"
+        android:textColor="@color/white_color"
+        android:textSize="@dimen/text_size_16sp" />
+
+</RelativeLayout>

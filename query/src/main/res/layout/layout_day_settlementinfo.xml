@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/rel_settlement_area_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@color/white_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@string/settlement_name"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView1"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/rel_settlement_item_1"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="登录名"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView12"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_12"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="订单时间"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView13"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_13"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="visible" />
+
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_1"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="总金额"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlement_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView2"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/rel_settlement_item_2"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_2"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="折后金额"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlement_cash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView3"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_2r"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_3r"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3r"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@string/refund_money"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlement_cashr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView3r"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/view_3"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="现金退款金额"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlement_cny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView4"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_4"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="实际交易金额"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView14"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_14"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_141"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView141"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="费率金额"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView141"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_141"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_142"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/textView142"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="支付类型"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlment_name42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView142"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_142"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/divide_gray_color"
+            android:visibility="visible" />
+
+
+        <RelativeLayout
+            android:id="@+id/rel_settlement_item_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@string/settlement_count"
+                android:textSize="@dimen/text_size_16sp" />
+
+            <TextView
+                android:id="@+id/edit_settlement_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:layout_toEndOf="@+id/textView5"
+                android:background="@null"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="right"
+                android:hint="@string/settlement_hint"
+                android:textColorHint="@color/hint_color"
+                android:textSize="@dimen/text_size_16sp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/layout_home_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_bar_height"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

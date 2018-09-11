@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_back_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rel_mine_userinfo_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@color/white_color">
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_user"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <EditText
+                    android:id="@+id/edit_mine_userinfo_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView13"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/label_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_1"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/ming_info_userid"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <EditText
+                    android:id="@+id/edit_mine_userinfo_userid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView14"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/label_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_61"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_2"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_61"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView614"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/weixingTongdao"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <EditText
+                    android:id="@+id/edit_mine_userinfo_userid6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView614"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/label_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_611"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_62"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_621"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_611"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView6141"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/zfb_tongdao"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <EditText
+                    android:id="@+id/edit_mine_userinfo_userid61"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView6141"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/label_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_2"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_621"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_2"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_tel"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView15"
+                    android:background="@null"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`!@#$%^*()_+=-`,.;:[]{}\\\?|'~\\/&lt;&gt;&amp;"
+                    android:gravity="right"
+                    android:maxLength="11"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_3"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_3"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_3"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_name"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView16"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_73"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_4"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_74"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_73"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView176"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_nick_name"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_name7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView176"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_4"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_74"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_4"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_email"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView17"
+                    android:background="@null"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@_."
+                    android:gravity="right"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_5"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_5"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_5"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_fax"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_shopid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView18"
+                    android:background="@null"
+                    android:digits="0123456789"
+                    android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_6"
+
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_6"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_6"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_15dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_staff_id"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_shopid1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView19"
+                    android:background="@color/grey_error"
+                    android:clickable="false"
+                    android:digits="0123456789"
+                    android:focusable="false"
+                    android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/label_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_7"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_7"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_7"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_tenants_rate"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <Spinner
+                    android:id="@+id/sp_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView20"
+                    android:spinnerMode="dialog"
+                    android:visibility="gone"></Spinner>
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_email1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView20"
+                    android:background="@null"
+                    android:digits="0123456789."
+                    android:gravity="right"
+                    android:hint="0.0060"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_8"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_8"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_8"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_mail_code"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_email2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView21"
+                    android:background="@null"
+                    android:digits="0123456789"
+                    android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_10"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_9"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_10"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_fax"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_email4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView23"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_11"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_11"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_11"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_c_bank"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <CheckBox
+                    android:id="@+id/chock_box_bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/margin_45dp"
+                    android:layout_toEndOf="@+id/textView24" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_12"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_12"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_12"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_province"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_province"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_province"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/textView1" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view__1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:background="@color/divide_gray_color" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_city"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/textView2" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view__2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:background="@color/divide_gray_color" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_area"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/textView3" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_9"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/ll_p"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_mine_userinfo_item_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_9"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:text="@string/regist_info_address"
+                    android:textColor="@color/label_color"
+                    android:textSize="@dimen/text_size_20sp" />
+
+                <com.yang.yunwang.base.ui.ClearEditText
+                    android:id="@+id/edit_mine_userinfo_email3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView22"
+                    android:background="@null"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:textColor="@color/black_color"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/text_size_20sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_110"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_mine_userinfo_item_10"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_110"
+                android:layout_marginBottom="@dimen/margin_100dp"
+                android:orientation="vertical"
+                android:visibility="invisible">
+
+                <RelativeLayout
+                    android:id="@+id/rl_province1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_province1"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_province1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/textView11" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view__11"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:background="@color/divide_gray_color" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_city1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/t1extView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_city1"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_city1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/t1extView21" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view__21"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:layout_marginBottom="@dimen/margin_5dp"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:background="@color/divide_gray_color" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_area1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/margin_10dp"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginTop="@dimen/margin_10dp"
+                        android:text="@string/regist_info_area1"
+                        android:textColor="@color/label_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_area1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:layout_marginRight="@dimen/margin_10dp"
+                        android:layout_toEndOf="@+id/textView31" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white_color">
+
+        <Button
+            android:id="@+id/btn_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:background="@drawable/material_button"
+            android:text="@string/regist_info_btn"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

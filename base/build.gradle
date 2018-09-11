@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 101
+        versionName "1.0.1"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.yunwang.yunlaohu",
+                JPUSH_APPKEY : "deba25395288d44825b516c4", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.yqritc:recyclerview-flexibledivider:1.4.0'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    compile files('libs/android-viewbadger.jar')
+    compile 'com.google.zxing:zxing-parent:3.3.0'
+    compile files('libs/core_3.2.0.jar')
+    compile files('libs/com.baidu.tts_2.3.1.20170808_e39ea89.jar')
+    compile 'cn.jiguang.sdk:jpush:3.1.1'  // JPush 3.0.9
+    compile 'cn.jiguang.sdk:jcore:1.1.9'  // JCore 1.1.7
+    compile 'com.github.jokermonn:permissions4m:2.1.2-lib'
+    compile project(':pulltorefreshlib')
+    compile project(':xrecyclerview')
+//    compile files('libs/android-viewbadger.jar')
+//    compile files('libs/com.baidu.tts_2.3.1.20170808_e39ea89.jar')
+//    compile files('libs/core_3.2.0.jar')
+    annotationProcessor 'com.github.jokermonn:permissions4m:2.1.2-processor'
+    compile rootProject.ext.dependencies["supportv4"]
+    compile rootProject.ext.dependencies["appcompatv7"]
+    compile rootProject.ext.dependencies["recyclerviewv7"]
+    compile rootProject.ext.dependencies["arouterapi"]
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
+}

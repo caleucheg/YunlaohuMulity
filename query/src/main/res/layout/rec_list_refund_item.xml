@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_list_item_area"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_order_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:src="@drawable/wx_logo" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/image_order_logo"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_toEndOf="@+id/image_order_logo"
+        android:text="￥"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_20sp" />
+
+    <TextView
+        android:id="@+id/text_order_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textView12"
+        android:text="112"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_24sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_15dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:layout_toEndOf="@id/text_order_money"
+        android:gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_order_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="状态"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/text_size_14sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_order_code"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_35dp"
+            android:gravity="end"
+            android:text="133268090120160930130035887"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/text_size_14sp" />
+
+        <TextView
+            android:id="@+id/text_order_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016-07-18 15:06:33"
+            android:textColor="@color/grey_error"
+            android:textSize="@dimen/text_size_14sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

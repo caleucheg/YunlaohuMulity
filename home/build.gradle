@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 101
+        versionName "1.0.1"
+        if (!rootProject.ext.isMouleDebugHome) {
+            applicationId "com.yang.yunwang.home"
+        }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: "com.yunwang.yunlaohu",
+                JPUSH_APPKEY : "deba25395288d44825b516c4", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    sourceSets {
+        main {
+            if (!rootProject.ext.isMouleDebugHome) {
+                manifest.srcFile 'src/debug/AndroidManifest.xml'
+                java.srcDir 'src/debug/java/'
+            } else {
+                manifest.srcFile 'src/release/AndroidManifest.xml'
+                java.srcDir 'src/release/java/'
+            }
+
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+//    compile 'com.android.support:appcompat-v7:27.+'
+    testCompile 'junit:junit:4.12'
+    compile project(':base')
+    annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
+    compile 'cn.jiguang.sdk:jpush:3.1.1'  // JPush 3.0.9
+    compile 'cn.jiguang.sdk:jcore:1.1.9'  // JCore 1.1.7
+}

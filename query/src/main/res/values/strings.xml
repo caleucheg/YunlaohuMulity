@@ -1,0 +1,212 @@
+<resources>
+    <string name="app_name">query</string>
+    <!--订单查询界面-->
+    <string name="orders_list_title">订单查询</string>
+    <string name="orders_search_title">订单查询</string>
+    <string name="orders_search_order_code">订单号</string>
+    <string name="orders_search_start_time">订单开始时间</string>
+    <string name="orders_search_end_time">订单结束时间</string>
+    <string name="orders_search_start_time_refund">退款开始时间</string>
+    <string name="orders_search_end_time_refund">退款结束时间</string>
+    <string name="orders_search_customer">商户用户名</string>
+    <string name="orders_search_customer_name">商户名称</string>
+    <string name="orders_search_pay_type">交易类型</string>
+    <string name="orders_search_waitting">正在加载数据，请稍后...</string>
+    <string name="orders_search_btn_settlement">汇总</string>
+    <string name="hint_time">请选择时间</string>
+    <!--订单查询结果界面-->
+    <string name="orders_search_info_title">订单详情</string>
+    <string name="orders_search_info_id">序&#12288;&#12288;号</string>
+    <string name="orders_search_info_customer">商户名称</string>
+    <string name="orders_search_info_code">订&#8194;单&#8194;号</string>
+    <string name="orders_search_info_user">登&#8194;录&#8194;名</string>
+    <string name="orders_search_info_user_name">真实姓名</string>
+    <string name="orders_search_info_pay_type">交易类型</string>
+    <string name="orders_search_info_money">交易金额</string>
+    <string name="orders_search_info_money_cash">折后金额</string>
+    <string name="orders_search_info_money_type">交易币种</string>
+    <string name="orders_search_info_star_time">交易时间</string>
+    <string name="orders_search_merch_rate">商户费率</string>
+    <string name="orders_search_rate">费&#12288;&#12288;率</string>
+    <string name="orders_search_rate_fee">返&#12288;&#12288;佣</string>
+    <!--微信订单查询界面-->
+    <string name="wx_orders_search_title">微信订单查询</string>
+    <string name="single_orders_search_order_code">订单号</string>
+    <string name="single_btn_orders_search">查询</string>
+    <string name="wx_error_result">请求失败,请返回重试.</string>
+    <string name="wx_error_code">查无此数据，请检查订单号！</string>
+    <string name="wx_null_code">请至少填写一项订单号</string>
+    <string name="single_order_code">订单号</string>
+    <string name="single_order_pay_type">交易类型</string>
+    <string name="single_order_money">交易金额</string>
+    <string name="single_order_cny">交易币种</string>
+    <string name="single_order_time">交易时间</string>
+    <string name="single_order_status">交易状态</string>
+
+    <!--支付宝订单查询界面-->
+    <string name="zfb_orders_search_title">支付宝订单查询</string>
+    <string name="zfb_orders_search_order_code">订单号</string>
+    <string name="zfb_btn_orders_search">查询</string>
+    <string name="zfb_btn_orders_supplement">补单</string>
+    <string name="zfb_error_result">请求失败,请返回重试.</string>
+    <string name="zfb_error_code">查无此数据，请检查订单号！</string>
+    <string name="zfb_null_code">请填写订单号</string>
+    <string name="pl_order_no">平台订单号</string>
+    <string name="select_one">最多输入一个订单号！</string>
+    <!--汇总界面-->
+    <string name="settlement_list_title">汇总</string>
+    <string name="settlement_title">汇总详情</string>
+    <string name="settlement_name">员工名称</string>
+    <string name="settlement_money">交易金额</string>
+    <string name="settlement_cash">实际交易金额</string>
+    <string name="settlement_cny">交易币种</string>
+    <string name="settlement_count">交易笔数</string>
+    <string name="settlement_hint">无数据</string>
+    <string name="refund_money">退款金额</string>
+    <!--退款界面-->
+    <string name="unrefund_search_start_time">交易开始时间</string>
+    <string name="unrefund_search_end_time">交易结束时间</string>
+    <string name="unrefund_search_code">订单号</string>
+    <string name="unrefund_search_title">退款</string>
+    <!--退款查询界面-->
+    <string name="refund_search_start_time">订单开始时间</string>
+    <string name="refund_search_end_time">订单结束时间</string>
+    <string name="refund_search_refund_start_time">退款开始时间</string>
+    <string name="refund_search_refund_end_time">退款结束时间</string>
+    <string name="refund_search_title">退款查询</string>
+    <string name="refund_search_code">订单号</string>
+    <string name="btn_refund_search">查询</string>
+    <!--退款查询结果界面-->
+    <string name="unrefund_info_sys_no">序&#12288;&#12288;号</string>
+    <string name="unrefund_info_code">订&#8194;单&#8194;号</string>
+    <string name="unrefund_info_pay_type">交易类型</string>
+    <string name="unrefund_info_money_type">交易币种</string>
+    <string name="unrefund_info_order_time">交易时间</string>
+    <string name="unrefund_info_money">订单金额</string>
+    <string name="unrefund_info_refund">已退金额</string>
+    <string name="unrefund_info_cash">可退金额</string>
+    <string name="unrefund_info_refund_count">退款笔数</string>
+    <string name="unrefund_info_status">退款操作</string>
+    <string name="unrefund_info_controller">退款</string>
+    <string name="unrefund_status">退款</string>
+    <string name="refunded_status">退款完成</string>
+    <string name="unrefund_step">部分退款</string>
+    <string name="unrefund_error">不可退款</string>
+    <string name="unrefund_controller_title">退款详情</string>
+    <string name="unrefund_controller_code">订&#8194;单&#8194;号</string>
+    <string name="unrefund_controller_refund">退款金额</string>
+    <string name="unrefund_controller_password">密&#12288;&#12288;码</string>
+    <string name="unrefund_btn_refund">确认退款</string>
+    <string name="unrefund_hint">输入金额</string>
+    <string name="unrefund_password_hint">输入密码</string>
+    <string name="unrefund_info_title">退款详情</string>
+    <!--退款查询信息界面-->
+    <string name="refund_info_sos_no">序&#12288;&#12288;号</string>
+    <string name="refund_info_code">订&#8194;单&#8194;号</string>
+    <string name="refund_info_pay_type">交易类型</string>
+    <string name="refund_info_money">交易金额</string>
+    <string name="refund_info_cny">交易币种</string>
+    <string name="refund_info_order_time">交易时间</string>
+    <string name="refund_info_refund_time">退款时间</string>
+    <string name="refund_info_refund">退款金额</string>
+    <string name="refund_info_status">状&#12288;&#12288;态</string>
+    <string name="refund_search_info_title">退款详情</string>
+    <!--费率订单-->
+    <string name="tenants_tate">商户费率订单</string>
+    <string name="top_tate">上级费率订单</string>
+    <string name="regist_info">商户注册</string>
+    <string name="update_info">信息</string>
+    <string name="shopid">门店ID</string>
+    <string name="rate_title">交易费率订单查询</string>
+    <string name="rate_title_sett">交易费率订单汇总</string>
+    <string name="check_net">请检查网络连接</string>
+    <string name="regist_info_nick_name">商户简称</string>
+    <string name="wx_type">102</string>
+    <string name="ali_type">103</string>
+    <string name="unrefund_status_print">未退款</string>
+    <string name="pufa_koubei_way">浦发口碑通道</string>
+    <string name="sxf_s">手&#8194;续&#8194;费</string>
+    <string name="order_detial">订单详情</string>
+    <!--员工二维码-->
+    <string name="personel_qr_title">员工二维码</string>
+    <string name="personel_qr_samrt">智能付款码</string>
+    <string name="personel_qr_wx">微信付款</string>
+    <string name="personel_qr_zfb">支付宝付款</string>
+    <string name="personel_qr_check">核销二维码</string>
+    <string name="personel_qr_delete">删除核销二维码</string>
+    <string name="staff_pay_qrcode">支付二维码</string>
+    <!--员工查询-->
+    <string name="staff_search_customer">登录名</string>
+    <string name="staff_search_tel">电&#12288;话</string>
+    <string name="staff_search_btn_search">查询</string>
+    <string name="staff_search_title">员工查询</string>
+
+    <!--员工信息界面-->
+    <string name="staff_info_id">编&#12288;&#12288;号</string>
+    <string name="staff_info_customer">登&#8194;录&#8194;名</string>
+    <string name="staff_info_display">显&#8194;示&#8194;名</string>
+    <string name="staff_info_tel">电&#12288;&#12288;话</string>
+    <string name="staff_info_email">邮&#12288;&#12288;箱</string>
+    <string name="staff_info_shopid">门&#8194;店&#8194;ID</string>
+    <string name="staff_info_time">注册时间</string>
+    <string name="staff_info_control">商户详情</string>
+    <string name="staff_info_control_order">操&#12288;&#12288;作</string>
+    <string name="staff_info_qr">员工二维码</string>
+    <string name="staff_info_title">员工信息</string>
+    <!--商户查询-->
+    <string name="shop_user">商户用户名</string>
+    <string name="hint_shop_user">请输入商户用户名</string>
+    <string name="shop_name">商户名称</string>
+    <string name="hint_shop_name">请输入商户名称</string>
+    <string name="shop_search_title">商户查询</string>
+    <string name="shop_search_btn">查询</string>
+
+    <!--商户信息-->
+    <string name="shop_id">商&#8194;户&#8194;号</string>
+    <string name="shop_info_user">商户用户</string>
+    <string name="shop_info_name">商户名称</string>
+    <string name="shop_info_tel">联系电话</string>
+    <string name="shop_info_type">商户类型</string>
+    <string name="shop_info_time">注册时间</string>
+    <string name="shop_info_control">操&#12288;&#12288;作</string>
+    <string name="shop_info_email">电子邮箱</string>
+    <string name="shop_info_fax">传&#12288;&#12288;真</string>
+    <string name="shop_info_address">联系地址</string>
+    <string name="shop_info_top">上级员工</string>
+    <string name="shop_info_btn_control">查看订单</string>
+    <string name="shop_info_btn_control1">调拨</string>
+    <string name="shop_info_title">商户详情</string>
+    <!--上级费率修改-->
+    <string name="update_rate_tittle">修改上级费率</string>
+    <string name="update_rate_hint">输入费率</string>
+    <string name="update_rate_rate">费&#12288;&#12288;率</string>
+    <string name="update_rate_comfirm">确&#12288;&#12288;定</string>
+
+    <!--调拨-->
+    <string name="allocate">调拨</string>
+    <!--商户权限分配-->
+    <string name="shop_role">权限分配</string>
+    <!--员工权限分配-->
+    <string name="staff_role">员工权限分配</string>
+    <!--员工汇总查询界面-->
+    <string name="staff_collect_list_title">服务商员工订单汇总</string>
+    <string name="staff_collect_search_title">订单查询</string>
+    <string name="staff_collect_search_order_code">订单号</string>
+    <string name="staff_collect_search_start_time">开始时间</string>
+    <string name="staff_collect_search_end_time">结束时间</string>
+    <string name="staff_collect_search_customer">员工登录名</string>
+    <string name="staff_collect_search_customer_name">真实姓名</string>
+    <string name="staff_collect_search_pay_type">交易类型</string>
+    <string name="staff_collect_search_phone">电话</string>
+    <string name="staff_collect_search_btn_settlement">汇总</string>
+    <!--汇总界面-->
+    <string name="staffcollect_list_title">汇总</string>
+    <string name="staffcollect_title">汇总详情</string>
+    <string name="staffcollect_name">员工登录名</string>
+    <string name="staffcollect_money">真实姓名</string>
+    <string name="staffcollect_cash">电话</string>
+    <string name="staffcollect_cny">交易金额</string>
+    <string name="staffcollect_count">退款金额</string>
+    <string name="staffcollect_count1">实际金额</string>
+    <string name="staffcollect_hint">无数据</string>
+</resources>

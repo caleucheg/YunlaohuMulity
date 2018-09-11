@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/image_order_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:src="@drawable/shop_logo" />
+
+    <!--<TextView
+        android:id="@+id/text_shop_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_order_logo"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_toEndOf="@+id/image_order_logo"
+        android:text="1633"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_16sp" />-->
+
+    <TextView
+        android:id="@+id/text_shop_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginRight="@dimen/margin_10dp"
+        android:layout_toEndOf="@+id/image_order_logo"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:text="朝阳区潮流时尚二零四六发艺工作室"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_20sp" />
+
+    <!--<TextView
+        android:id="@+id/text_shop_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/text_shop_time"
+        android:layout_alignTop="@+id/image_order_logo"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text="1333255465656"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_20sp" />
+
+    <TextView
+        android:id="@+id/text_shop_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/text_shop_tel"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:layout_marginRight="@dimen/margin_10dp"
+        android:text="2016-09-24 17:58:33"
+        android:textColor="@color/grey_error"
+        android:textSize="@dimen/text_size_18sp" />-->
+
+</RelativeLayout>

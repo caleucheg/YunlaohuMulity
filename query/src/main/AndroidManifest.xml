@@ -1,0 +1,185 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.yang.yunwang.query">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.OrderSearchAvtivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.OrdersListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.OrdersListInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.ZFBOrdersSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.WXOrdersSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.SettlementInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.SettlementListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.UnRefundInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.UnRefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.UnRefundListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.RefundInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.RefundSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.RefundListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.persnoalqr.PersonnelQRActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.RefundListPrintActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.RefundPrintSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.CommonSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.CommonListInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.CommonListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.CommonDayCollectList"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.DaySettlementInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.search.CommonSearchRefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.CommonListInfoRefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.list.CommonListRefundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.staff.StaffInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.staff.StaffListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.staff.StaffSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.merch.MerchantInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.merch.MerchantListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.merch.MerchantSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.allcoate.AllocateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.staffcollect.StaffCollectInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.staffcollect.StaffColletListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.staffcollect.StaffCollectSearchActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+    </application>
+
+</manifest>

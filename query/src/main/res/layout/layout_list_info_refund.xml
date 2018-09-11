@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_back_color">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="35dp">
+
+        <RelativeLayout
+            android:id="@+id/rel_order_search_area_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="登录姓名"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView1"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_1"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_1"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="真实姓名"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_customer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView2"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+
+            <View
+                android:id="@+id/view_4"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_2"
+                android:background="@color/divide_gray_color"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_4"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="原订单号"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView5"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:gravity="right"
+                    android:textIsSelectable="true"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_5"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_5"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_5"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="商户名称"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_pay_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView6"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:lines="1"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_6"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_6"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_6"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="交易类型"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView7"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_7"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_7"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_7"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="@string/single_order_money"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_money_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView8"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_8"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_8"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_8"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="退款金额"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_star_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView9"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_9"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_9"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_9"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="交易币种"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_star_time1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView10"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_10"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_10"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_10"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="交易时间"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_star_time2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView11"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/view_11"
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/rel_order_search_item_11"
+                android:layout_marginBottom="@dimen/margin_5dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@color/divide_gray_color" />
+
+            <RelativeLayout
+                android:id="@+id/rel_order_search_item_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_11"
+                android:layout_marginBottom="@dimen/margin_15dp"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="退款时间"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <EditText
+                    android:id="@+id/edit_orders_search_info_star_time12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toEndOf="@+id/textView12"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:gravity="right"
+                    android:textSize="@dimen/text_size_16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

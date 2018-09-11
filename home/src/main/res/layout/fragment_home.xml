@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_back_color">
+
+    <RelativeLayout
+        android:id="@+id/rel_staff_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/staff_home_header">
+
+
+        <ImageView
+            android:id="@+id/image_staff_portrait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:background="@drawable/image_circle"
+            android:scaleType="centerInside"
+            android:src="@drawable/portrait_man" />
+
+        <TextView
+            android:id="@+id/text_staff_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_staff_portrait"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:text=""
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:id="@+id/text_staff_top_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_staff_customer"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_14sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_staff_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_staff_header"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@color/white_color"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_staff_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_staff_sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_staff_main"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@color/white_color"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_staff_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never" />
+    </LinearLayout>
+
+
+</RelativeLayout>

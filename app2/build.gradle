@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+dependencies {
+    annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
+}
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.duoyoucai.android"
+        versionCode 101
+        versionName "2.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "3dcf2e38c9381ae5f75f0534", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        testCompile 'junit:junit:4.12'
+        annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
+        if (rootProject.ext.isMouleDebugHome) {
+            compile project(':home')
+        }
+        if (rootProject.ext.isModule1Debug) {
+            compile project(':query')
+        }
+        if (rootProject.ext.isModule2Debug) {
+            compile project(':pay')
+        }
+        if (rootProject.ext.isModule3Debug) {
+            compile project(':dyclib')
+        }
+        compile 'cn.jiguang.sdk:jpush:3.1.1'  // JPush 3.0.9
+        compile 'cn.jiguang.sdk:jcore:1.1.9'  // JCore 1.1.7
+
+
+    }
+
+}
+
+
+

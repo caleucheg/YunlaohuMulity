@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_basetitle_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/login_back_color"
+    android:clipToPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/rel_order_search_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/blue_color"
+        android:clickable="true">
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/text_order_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:id="@+id/btn_home_comfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:padding="@dimen/margin_10dp"
+            android:text="保存"
+            android:textColor="@color/white_color"
+            android:textSize="20dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_order_search_header">
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/layout_home_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_bar_height"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/image_order_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:clickable="false"
+        android:src="@drawable/staff_logo"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/text_staff_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_15dp"
+        android:layout_toEndOf="@+id/image_order_logo"
+        android:clickable="false"
+        android:text="张三"
+        android:textColor="@color/black_color"
+        android:textSize="@dimen/text_size_16sp" />
+
+    <Switch
+        android:id="@+id/switch_allocate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="15dp"
+        android:text="" />
+
+
+</RelativeLayout>
