@@ -24,7 +24,7 @@ public interface UnrefundInfoContract {
     }
 
     interface Presenter extends BasePresenter{
-        void initData();
+        void initData(boolean isFirst);
 
         void Refund(String password, String code, String refund, String total_fee, String sys_no, String staff_sys_no, String type);
     }

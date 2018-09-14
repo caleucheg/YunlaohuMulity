@@ -66,9 +66,10 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
     }
 
     @Override
-    public void initData() {
+    public void initData(boolean isFirst) {
         Intent intent = view.loadIntentInstance();
         String code = intent.getStringExtra("code_list");
+        Model refundBean = (Model) intent.getSerializableExtra("refundbean");
         RefundListReq accessToken = new RefundListReq();
         accessToken.setOutTradeNo(code);
         accessToken.setSystemUserSysNo(ConstantUtils.SYS_NO);
@@ -76,6 +77,20 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
         progressDialog.setMessage(context.getResources().getString(R.string.orders_search_waitting));
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
+        if (isFirst) {
+            KLog.i("first");
+            try {
+                parseData(refundBean);
+            } catch (Exception e) {
+                progressDialog.dismiss();
+                e.printStackTrace();
+            }
+        } else {
+            initRData(accessToken);
+        }
+    }
+
+    private void initRData(RefundListReq accessToken) {
         QueryReService.getInstance(context)
                 .getUnrefundList(accessToken)
                 .subscribeOn(Schedulers.io())
@@ -91,10 +106,10 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
                                 String order_time = item.getTimeStart();
                                 String money = AmountUtils.changeF2Y(item.getCashFee());
                                 String refund;
-                                if (TextUtils.isEmpty(item.getTransactionId())) {
+                                if (!TextUtils.isEmpty(item.getTransactionId())) {
                                     transaction_id = item.getTransactionId();
                                 }
-                                if (TextUtils.isEmpty(item.getRefundFee() + "")) {
+                                if (!TextUtils.isEmpty(item.getRefundFee() + "")) {
                                     refund = AmountUtils.changeF2Y(item.getRefundFee());
                                 } else {
                                     refund = AmountUtils.changeF2Y(item.getRefundFee());
@@ -118,6 +133,30 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
                         progressDialog.dismiss();
                     }
                 });
+    }
+
+    private void parseData(Model item) throws Exception {
+        String sys_no = item.getSysNo() + "";
+        String code = item.getOutTradeNo();
+        String order_time = item.getTimeStart();
+        String money = AmountUtils.changeF2Y(item.getCashFee());
+        String refund;
+        if (TextUtils.isEmpty(item.getTransactionId())) {
+            transaction_id = item.getTransactionId();
+        }
+        if (TextUtils.isEmpty(item.getRefundFee() + "")) {
+            refund = AmountUtils.changeF2Y(item.getRefundFee());
+        } else {
+            refund = AmountUtils.changeF2Y(item.getRefundFee());
+        }
+        String money_releas = AmountUtils.changeF2Y(item.getFee());
+        String refund_count = item.getRefundCount() + "";
+        String pay_type = item.getPayType();
+        String status = AmountUtils.changeF2Y(item.getFee());
+        String total_fee = item.getTotalFee() + "";
+        String total_FEE = AmountUtils.changeF2Y(item.getTotalFee());
+        view.setInfo(sys_no, code, pay_type, order_time, money, refund, money_releas, refund_count, status, total_fee, total_FEE);
+        progressDialog.dismiss();
     }
 
     private void getPayConfig(String higherSysNo) {
@@ -254,7 +293,8 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
 
                         accessToken.setReqModel(mapReq);
                         accessToken.setSystemUserSysNo(ConstantUtils.SYS_NO);
-                        accessToken.setTransactionId(transaction_id);
+                        //
+//                        accessToken.setTransactionId(transaction_id);
                         QueryReService.getInstance(context)
                                 .doNetBankRefund(accessToken)
                                 .subscribeOn(Schedulers.io())
@@ -339,7 +379,7 @@ public class UnrefundInfoPresenter implements UnrefundInfoContract.Presenter {
             //成功
             Toast.makeText(context, "退款成功！", Toast.LENGTH_SHORT).show();
             view.changStatus();
-            initData();
+            initData(false);
         } else {
             //失败
             Toast.makeText(context, "退款失败！", Toast.LENGTH_SHORT).show();

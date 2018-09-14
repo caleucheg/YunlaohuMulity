@@ -119,6 +119,7 @@ public class UnRefundListViewHolder extends RecyclerView.ViewHolder implements V
         MyBundle intent = new MyBundle();
         intent.put("hasRole", hasRole);
         intent.put("code_list", bean.getModel().get(Integer.parseInt(view.getTag().toString())).getOutTradeNo());
+        intent.put("refundbean", bean.getModel().get(Integer.parseInt(view.getTag().toString())));
         OrdersIntent.unRefundInfo(intent, activity, 101);
 //        this.activity.finish();
     }

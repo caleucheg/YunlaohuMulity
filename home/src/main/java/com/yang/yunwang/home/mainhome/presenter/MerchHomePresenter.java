@@ -28,11 +28,11 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class MerchHomePresenter implements MerchHomeContract.Presenter {
-    private final MerchHomeContract.View view;
-    private final Context context;
     private static double TOTAL_MONEY = 0;
     private static double TOTAL_CASH = 0;
     private static int COUNT = 0;
+    private final MerchHomeContract.View view;
+    private final Context context;
     private MerchantHomeModelInterface model;
     private MerchantHomeBean bean;
 
@@ -112,8 +112,8 @@ public class MerchHomePresenter implements MerchHomeContract.Presenter {
                                     String money = "0";
                                     String cash ="0";
                                     try {
-                                        money = AmountUtils.changeF2Y(value.getCashFee());
-                                        cash = AmountUtils.changeF2Y(value.getTotalFee());
+                                        money = AmountUtils.changeF2Y(value.getCashFee() + "");
+                                        cash = AmountUtils.changeF2Y(value.getTotalFee() + "");
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
@@ -164,6 +164,7 @@ public class MerchHomePresenter implements MerchHomeContract.Presenter {
                                     String money = "0";
                                     String cash ="0";
                                     try {
+                                        //TODO 10000000 -----1E7
                                         money = AmountUtils.changeF2Y(value.getCashFee());
                                         cash = AmountUtils.changeF2Y(value.getTotalFee());
                                     } catch (Exception e) {

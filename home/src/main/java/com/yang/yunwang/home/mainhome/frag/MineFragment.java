@@ -71,6 +71,19 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             rel_password.setOnClickListener(this);
             rel_userinfo.setOnClickListener(this);
             btn_logout.setOnClickListener(this);
+
+//            Button button_test =  view.findViewById(R.id.button_test);
+//            button_test.setVisibility(View.VISIBLE);
+//            button_test.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    try {
+//                        KLog.i(AmountUtils.changeF2Y(10000000L));
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            });
         }
         return view;
     }

@@ -99,7 +99,7 @@ public class UnRefundInfoActivity extends BaseActivity implements View.OnClickLi
          llBasetitleBack = getLlBasetitleBack();
         llBasetitleBack.setOnClickListener(this);
         status_background = (LinearLayout) findViewById(R.id.linear_unrefund_status_background);
-        presenter.initData();
+        presenter.initData(true);
     }
 
     @Override

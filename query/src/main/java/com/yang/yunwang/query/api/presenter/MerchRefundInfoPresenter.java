@@ -219,7 +219,8 @@ public class MerchRefundInfoPresenter implements MerchRefundInfoContract.Present
                         int staff_sys_no_param = Integer.parseInt(old_sys_no);
                         accessToken.setReqModel(mapReq);
                         accessToken.setSystemUserSysNo(staff_sys_no_param + "");
-                        accessToken.setTransactionId(transaction_id_list);
+                        //去掉transactionId
+//                        accessToken.setTransactionId(transaction_id_list);
                         QueryReService.getInstance(context)
                                 .doNetBankRefund(accessToken)
                                 .subscribeOn(Schedulers.io())

@@ -3,8 +3,10 @@ package com.yang.yunwang.query.api.bean.refundsearch.refundlist;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @SuppressWarnings("unused")
-public class Model {
+public class Model implements Serializable {
 
     @SerializedName("Cash_fee")
     private Long mCashFee;
