@@ -43,9 +43,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class StartUpPresenter implements StartUpContract.Presenter {
 
-    private boolean isSavedWx = false;
     private final StartUpContract.View view;
     private final Context context;
+    private boolean isSavedWx = false;
 
     public StartUpPresenter(StartUpContract.View view, Context context) {
         view.setPresenter(this);
@@ -334,7 +334,11 @@ public class StartUpPresenter implements StartUpContract.Presenter {
                     JPUtils.setTags(context, ConstantUtils.SYS_NO);
                     CommonShare.putJPushIDBoolean(context, false);
                     Intent service = new Intent(context, PushSpeakService.class);
-                    context.startService(service);
+                    try {
+                        context.startService(service);
+                    } catch (Throwable e) {
+                        e.printStackTrace();
+                    }
                 }
             }
             initAllocateData();

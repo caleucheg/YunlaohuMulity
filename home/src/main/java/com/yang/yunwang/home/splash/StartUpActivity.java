@@ -68,7 +68,11 @@ public class StartUpActivity extends AppCompatActivity implements StartUpContrac
             if (!DycLibIntent.hasModule()){
                 KLog.i("startService");
                 Intent service = new Intent(this, PushSpeakService.class);
-                startService(service);
+                try {
+                    startService(service);
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
                 if (!TextUtils.isEmpty(sysNo)) {
                     JPUtils.setTags(this, sysNo);
                 }
