@@ -87,7 +87,8 @@ public class AllocateActivity extends BaseActivity implements AllcoatePageContra
         rec_order_list = (XRecyclerView) findViewById(R.id.xrec_allocate_list);
         rec_order_list.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
 //        rec_order_list.setLoadingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
-        rec_order_list.setRefreshing(false);
+//        rec_order_list.setRefreshing(false);
+        rec_order_list.setPullRefreshEnabled(false);
         rec_order_list.setLoadingMoreEnabled(false);
 //        btn_allocate=(Button) findViewById(R.id.btn_allocate_comfirm);
 

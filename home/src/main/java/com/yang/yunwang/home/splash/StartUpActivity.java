@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jaeger.library.StatusBarUtil;
 import com.socks.library.KLog;
 import com.yang.yunwang.base.moduleinterface.module.home.HomeIntent;
 import com.yang.yunwang.base.moduleinterface.module.module3.DycLibIntent;
@@ -38,6 +39,7 @@ public class StartUpActivity extends AppCompatActivity implements StartUpContrac
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_startup);
+        StatusBarUtil.setTranslucent(this, 0);
         //done switch version
         //done change pic
         new StartUpPresenter(this, this);

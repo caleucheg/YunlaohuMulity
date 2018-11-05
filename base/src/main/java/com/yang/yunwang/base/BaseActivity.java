@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jaeger.library.StatusBarUtil;
+
 /**
  * on 2017/3/21.
  * <p>
@@ -32,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.layout_title);
+        StatusBarUtil.setColorNoTranslucent(this, getResources().getColor(R.color.blue_color));
         text_title = (TextView) findViewById(R.id.text_order_search_title);
         image_back = (ImageView) findViewById(R.id.image_back);
         llRoot = (RelativeLayout) findViewById(R.id.ll_basetitle_root);

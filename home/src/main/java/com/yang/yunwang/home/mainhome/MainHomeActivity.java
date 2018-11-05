@@ -20,6 +20,7 @@ import android.view.KeyEvent;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.jaeger.library.StatusBarUtil;
 import com.joker.api.Permissions4M;
 import com.joker.api.wrapper.ListenerWrapper;
 import com.joker.api.wrapper.Wrapper;
@@ -50,6 +51,7 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_staffhome);
+        StatusBarUtil.setColorNoTranslucent(this, getResources().getColor(com.yang.yunwang.base.R.color.blue_color));
         init();
         mainHomePresenter.getServiceVersionCode();
         mainHomePresenter.checkPassWord();

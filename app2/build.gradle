@@ -4,7 +4,7 @@ dependencies {
 }
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "com.duoyoucai.android"
         versionCode 71
@@ -44,26 +44,26 @@ android {
     }
 
     dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        api fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
-        testCompile 'junit:junit:4.12'
+        testImplementation 'junit:junit:4.12'
         annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
         if (rootProject.ext.isMouleDebugHome) {
-            compile project(':home')
+            api project(':home')
         }
         if (rootProject.ext.isModule1Debug) {
-            compile project(':query')
+            api project(':query')
         }
         if (rootProject.ext.isModule2Debug) {
-            compile project(':pay')
+            api project(':pay')
         }
         if (rootProject.ext.isModule3Debug) {
-            compile project(':dyclib')
+            api project(':dyclib')
         }
-        compile 'cn.jiguang.sdk:jpush:3.1.1'  // JPush 3.0.9
-        compile 'cn.jiguang.sdk:jcore:1.1.9'  // JCore 1.1.7
+        api 'cn.jiguang.sdk:jpush:3.1.1'  // JPush 3.0.9
+        api 'cn.jiguang.sdk:jcore:1.1.9'  // JCore 1.1.7
 
 
     }
