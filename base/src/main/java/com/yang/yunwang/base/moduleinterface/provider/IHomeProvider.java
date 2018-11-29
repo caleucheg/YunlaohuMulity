@@ -38,6 +38,7 @@ public interface IHomeProvider extends IBaseProvider {
     String HOME_ACT_RESET_PWD = "/home/act/reset/pwd";
     String HOME_ACT_SCAN_RESULT = "/home/act/scan/result";
     String HOME_ACT_REGIST = "/home/act/regist";
+    String HOME_ACT_ORDER_FILTER = "/home/act/order/filter";
 
 
     void toast(String msg);

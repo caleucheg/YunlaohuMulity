@@ -1,12 +1,15 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">base</string>
     <string name="btn_login">登录</string>
     <string name="hint_user">用户名</string>
-    <string name="hint_password">密码</string>
+    <string name="hint_password">密码:</string>
     <string name="tab_merchant">服务商/商户</string>
     <string name="tab_staff">员工</string>
     <string name="login_waiting">正在登录...</string>
     <string name="refresh_error">刷新失败,请检查网络连接</string>
     <string name="loadmore_error">加载更多失败,请检查网络</string>
     <string name="alert_title">提示</string>
+    <string name="account">账号:</string>
+    <string name="filter">筛选</string>
+    <string name="order_search">订单查询</string>
 </resources>

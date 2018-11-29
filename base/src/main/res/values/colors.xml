@@ -38,4 +38,9 @@
     <color name="black">#000000</color>
     <!--添加修改左边-->
     <color name="item_left_color">#999999</color>
+    <color name="black_color_text">#3c3d3c</color>
+    <color name="blue_color_text">#00a0e9</color>
+    <color name="grey_color_text">#999999</color>
+    <color name="grey_color_text_sw">#888888</color>
+    <color name="grey_color_back_ground">#f5f4f9</color>
 </resources>

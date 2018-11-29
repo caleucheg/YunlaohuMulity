@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_color_back_ground"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_all_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_30dp"
+            android:background="@drawable/material_button_round_small"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/margin_5dp"
+            android:text="全部商户"
+            android:textColor="@color/white_color"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_switch_customer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20dp"
+            android:background="@drawable/small_coner_shape"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="@dimen/margin_5dp"
+            android:text="商户查询"
+            android:textColor="@color/blue_color_text"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_customer_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_40dp"
+            android:layout_marginTop="@dimen/margin_30dp"
+            android:layout_marginRight="@dimen/margin_40dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/small_coner_shape"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/margin_5dp"
+            android:paddingBottom="@dimen/margin_5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:scaleType="center"
+                android:src="@drawable/order_filter_zoom" />
+
+            <com.yang.yunwang.base.ui.ClearEditText
+                android:id="@+id/et_login_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:background="@null"
+                android:gravity="left|center_vertical"
+                android:hint="商户登录名"
+                android:singleLine="true"
+                android:textColorHint="@color/label_color"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_40dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="@dimen/margin_40dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/small_coner_shape"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/margin_5dp"
+            android:paddingBottom="@dimen/margin_5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:scaleType="center"
+                android:src="@drawable/order_filter_zoom" />
+
+            <com.yang.yunwang.base.ui.ClearEditText
+                android:id="@+id/et_customer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:background="@null"
+                android:gravity="left|center_vertical"
+                android:hint="商户名称"
+                android:singleLine="true"
+                android:textColorHint="@color/label_color"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:layout_marginTop="@dimen/margin_20dp"
+        android:layout_marginRight="@dimen/margin_30dp"
+        android:layout_marginBottom="@dimen/margin_20dp"
+        android:background="@drawable/blue_button"
+        android:text="查 询"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+
+        />
+
+</LinearLayout>

@@ -3,8 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/login_back_color">
+    <RelativeLayout
+        android:id="@+id/rel_order_search_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black_color"
+        android:clickable="false">
+
+        <TextView
+            android:id="@+id/text_order_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="翼惠支付"
+            android:textColor="@color/white_color"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
 
     <RelativeLayout
+        android:layout_below="@+id/rel_order_search_header"
         android:id="@+id/rel_staff_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

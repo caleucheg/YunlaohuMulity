@@ -31,9 +31,9 @@ public class StaffModel implements StaffModelInterface {
 
     @Override
     public void initTabList() {
-        String[] lists = context.getResources().getStringArray(f ? R.array.staff_tab_list : R.array.staff_tab_list_yg);
+        String[] lists = context.getResources().getStringArray(R.array.staff_tab_list);
         int[] reses = new int[]{R.drawable.staff_tab_home_unselect, R.drawable.home_a_order_u,
-                f ? R.drawable.home_a_merch_u : R.drawable.home_a_refund_u, R.drawable.staff_tab_mine_unselect};
+                R.drawable.home_a_staff_u, R.drawable.staff_tab_mine_unselect};
         List<String> tab_list = new ArrayList<String>();
         for (int i = 0; i < lists.length; i++) {
             tab_list.add(lists[i]);

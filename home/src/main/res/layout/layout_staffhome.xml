@@ -19,7 +19,7 @@
         android:layout_alignParentBottom="true"
         app:tabIndicatorColor="@null"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/blue_color"
-        app:tabTextColor="@color/black_color" />
+        app:tabSelectedTextColor="@color/blue_color_text"
+        app:tabTextColor="@color/black_color_text" />
 
 </RelativeLayout>

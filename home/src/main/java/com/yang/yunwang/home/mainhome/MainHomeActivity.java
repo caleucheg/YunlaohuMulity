@@ -1,6 +1,7 @@
 package com.yang.yunwang.home.mainhome;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -51,7 +52,7 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_staffhome);
-        StatusBarUtil.setColorNoTranslucent(this, getResources().getColor(com.yang.yunwang.base.R.color.blue_color));
+        StatusBarUtil.setColorNoTranslucent(this, getResources().getColor(com.yang.yunwang.base.R.color.black_color));
         init();
         mainHomePresenter.getServiceVersionCode();
         mainHomePresenter.checkPassWord();
@@ -84,11 +85,11 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
                 int resUid;
                 KLog.i("type--" + ConstantUtils.NEW_TYPE + "--" + fwsyg + "---" + shyg);
                 if (fwsyg) {
-                    res = R.drawable.home_a_merch_s;
-                    resUid = R.drawable.home_a_merch_u;
+                    res = R.drawable.home_a_staff_s;
+                    resUid = R.drawable.home_a_staff_u;
                 } else if (shyg) {
-                    res = R.drawable.home_a_refund_s;
-                    resUid = R.drawable.home_a_refund_u;
+                    res = R.drawable.home_a_staff_s;
+                    resUid = R.drawable.home_a_staff_u;
                 } else {
                     res = R.drawable.home_a_staff_s;
                     resUid = R.drawable.home_a_staff_u;
@@ -248,6 +249,7 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
         this.finish();
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public void jumpLoginPage() {
 //

@@ -13,6 +13,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.socks.library.KLog;
+import com.yang.yunwang.base.basereq.bean.merchlogin.MerchLoginResp;
 import com.yang.yunwang.base.basereq.bean.staffinfo.StaffInfoReq;
 import com.yang.yunwang.base.basereq.bean.stafflogin.StaffLoginResp;
 import com.yang.yunwang.base.dao.PassageWay;
@@ -32,7 +33,6 @@ import com.yang.yunwang.home.homeservice.bean.JidInsertResp;
 import com.yang.yunwang.home.homeservice.bean.LoginPageReq;
 import com.yang.yunwang.home.homeservice.bean.RoleTypeReq;
 import com.yang.yunwang.home.homeservice.bean.RoleTypeResp;
-import com.yang.yunwang.base.basereq.bean.merchlogin.MerchLoginResp;
 import com.yang.yunwang.home.loginpage.contract.LoginPageContract;
 import com.yang.yunwang.home.loginpage.model.LoginModel;
 import com.yang.yunwang.home.loginpage.model.intf.LoginModelInterface;
@@ -215,6 +215,7 @@ public class LoginPagePresenter implements LoginPageContract.Presenter {
         if (list_tabs.size() != 0 && list_views.size() != 0) {
             view.setDataAdapter(list_tabs, list_views);
         }
+        KLog.i(4 + "posssssss");
     }
 
     private void sentBroadcast(Context context) {

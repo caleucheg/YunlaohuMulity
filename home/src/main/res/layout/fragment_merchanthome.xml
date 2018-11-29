@@ -2,10 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_back_color">
+    android:background="@color/white_color">
+
+    <RelativeLayout
+        android:id="@+id/rel_order_search_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black_color"
+        android:clickable="false">
+
+        <TextView
+            android:id="@+id/text_order_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="翼惠支付"
+            android:textColor="@color/white_color"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/pull_refresh_scrollview"
+        android:layout_below="@+id/rel_order_search_header"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         ptr:ptrAnimationStyle="flip">
@@ -19,10 +38,10 @@
                 android:layout_height="wrap_content">
 
                 <RelativeLayout
-                    android:id="@+id/rel_header"
+                    android:background="@color/white_color"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/merchant_header_height"
-                    android:background="@drawable/staff_home_header">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -74,6 +93,9 @@
                     </LinearLayout>
                 </RelativeLayout>
 
+                <include
+                    android:id="@+id/rel_header"
+                    layout="@layout/home_page_top" />
                 <LinearLayout
                     android:id="@+id/linear_notify_area"
                     android:layout_width="wrap_content"
@@ -104,6 +126,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linear_notify_area"
                     android:layout_marginTop="@dimen/margin_10dp"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
                     android:overScrollMode="never" />
             </RelativeLayout>
         </ScrollView>

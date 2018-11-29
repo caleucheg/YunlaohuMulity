@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_color_back_ground"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rel_order_search_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black_color"
+        android:clickable="false">
+
+        <TextView
+            android:id="@+id/text_order_search_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="翼惠支付"
+            android:textColor="@color/white_color"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_40dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginRight="@dimen/margin_40dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/small_coner_shape"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/margin_5dp"
+                    android:paddingBottom="@dimen/margin_5dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_15dp"
+                        android:layout_marginRight="@dimen/margin_5dp"
+                        android:scaleType="center"
+                        android:src="@drawable/order_filter_zoom" />
+
+                    <com.yang.yunwang.base.ui.ClearEditText
+                        android:id="@+id/et_customer_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_5dp"
+                        android:layout_marginRight="@dimen/margin_5dp"
+                        android:background="@null"
+                        android:gravity="left|center_vertical"
+                        android:hint="全部商户"
+                        android:singleLine="true"
+                        android:textColorHint="@color/label_color"
+                        android:textCursorDrawable="@drawable/color_cursor"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.flyco.tablayout.SegmentTabLayout
+                    android:id="@+id/tab_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="@dimen/margin_30dp"
+                    android:paddingRight="@dimen/margin_30dp"
+                    tl:tl_bar_color="#ffffff"
+                    tl:tl_indicator_color="#2C97DE"
+                    tl:tl_indicator_corner_radius="8dp"
+                    tl:tl_tab_padding="20dp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/margin_50dp"
+                    android:layout_marginRight="@dimen/margin_50dp"
+                    android:background="@drawable/center_background"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/margin_20dp"
+                    android:paddingRight="@dimen/margin_20dp">
+
+                    <TextView
+                        android:id="@+id/tv_center_cash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="999,999,999.00"
+                        android:textColor="@color/black_color_text"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="实收金额(元)"
+                        android:textColor="@color/black_color_text"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="订单金额"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(元)"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:id="@+id/tv_order_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="1,000,000,000"
+                            android:textColor="@color/blue_color_text" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white_gray"
+                        android:paddingTop="@dimen/margin_10dp"
+                        android:paddingBottom="@dimen/margin_10dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="交易笔数"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(笔)"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:id="@+id/tv_trade_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="1,000,000,000"
+                            android:textColor="@color/blue_color_text" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white_gray"
+                        android:paddingTop="@dimen/margin_10dp"
+                        android:paddingBottom="@dimen/margin_10dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="退款金额"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="(元)|笔"
+                            android:textColor="@color/black_color_text" />
+
+                        <TextView
+                            android:id="@+id/tv_refund_fee_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="1,000,000,000|100"
+                            android:textColor="@color/blue_color_text" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="实收金额=订单金额-退款金额"
+                android:textColor="@color/grey_color_text_sw"
+                android:textSize="12sp" />
+
+            <include
+                android:id="@+id/ll_wx"
+                layout="@layout/ll_wx_report" />
+
+            <include
+                android:id="@+id/ll_zfb"
+                layout="@layout/ll_zfb_report" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

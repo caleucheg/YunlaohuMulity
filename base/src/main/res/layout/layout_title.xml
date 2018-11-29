@@ -10,7 +10,7 @@
         android:id="@+id/rel_order_search_header"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/blue_color"
+        android:background="@color/black_color"
         android:clickable="true">
 
         <ImageView

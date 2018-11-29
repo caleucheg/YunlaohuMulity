@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">query</string>
     <!--订单查询界面-->
     <string name="orders_list_title">订单查询</string>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">pay</string>
     <!--二维码支付-->
     <string name="qr_title">二维码支付</string>

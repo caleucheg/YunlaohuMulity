@@ -80,8 +80,11 @@ dependencies {
     api rootProject.ext.dependencies["appcompatv7"]
     api rootProject.ext.dependencies["recyclerviewv7"]
     api rootProject.ext.dependencies["arouterapi"]
-    api 'com.android.support:design:27.1.0'
-    api 'com.android.support:cardview-v7:27.1.0'
+    api 'com.android.support:design:27.1.1'
+    api 'com.android.support:cardview-v7:27.1.1'
     annotationProcessor rootProject.ext.dependencies["aroutercompiler"]
     api 'com.jaeger.statusbarutil:library:1.5.1'
+    api 'me.jessyan:autosize:1.1.0'
+    api 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
+    api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }

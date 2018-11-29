@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.socks.library.KLog;
-import com.yang.yunwang.base.moduleinterface.provider.IHomeProvider;
 import com.yang.yunwang.base.moduleinterface.provider.IOrdersProvider;
 import com.yang.yunwang.base.util.ConstantUtils;
 import com.yang.yunwang.home.R;
@@ -33,15 +32,25 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
             list.add(string_array[i]);
         }
         int[] reses = new int[]{
-                R.drawable.staff_normal, R.drawable.order_normal,
+                R.drawable.staff_normal,
+                R.drawable.order_normal,
                 R.drawable.merchant_normal,
-                R.drawable.staff_destribute, R.drawable.staff_user_destribute,
-                R.drawable.staff_collect, R.drawable.refund_search_icon, R.drawable.statics_normal_grey};
+                R.drawable.staff_destribute,
+                R.drawable.staff_user_destribute,
+//                R.drawable.staff_collect,
+                R.drawable.refund_search_icon,
+//                R.drawable.statics_normal_grey
+        };
         int[] reses_select = new int[]{
-                R.drawable.staff_select, R.drawable.order_select,
-                R.drawable.merchant_select,
-                R.drawable.staff_destribute, R.drawable.staff_user_destribute,
-                R.drawable.staff_collect, R.drawable.refund_search_icon, R.drawable.statics_normal_grey};
+                R.drawable.staff_normal,
+                R.drawable.order_normal,
+                R.drawable.merchant_normal,
+                R.drawable.staff_destribute,
+                R.drawable.staff_user_destribute,
+//                R.drawable.staff_collect,
+                R.drawable.refund_search_icon,
+//                R.drawable.statics_normal_grey
+        };
 
 //        Intent intent_staff = new Intent(context, StaffSearchActivity.class);
 //        Intent intent_order = new Intent(context, OrdersSearchActivity.class);
@@ -68,13 +77,13 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
 //                intent_statics};
         List<String> actions = new ArrayList<>();
         actions.add(IOrdersProvider.ORDERS_ACT_STAFF_SEARCH);
-        actions.add(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH);
+        actions.add(IOrdersProvider.ORDERS_ACT_SSTAFF_COLLECT_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_MERCH_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_MERCH_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_STAFF_SEARCH);
-        actions.add(IOrdersProvider.ORDERS_ACT_SSTAFF_COLLECT_SEARCH);
+//        actions.add(IOrdersProvider.ORDERS_ACT_SSTAFF_COLLECT_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_COMMON_REFUND_SEARCH);
-        actions.add(IHomeProvider.HOME_ACT_STATICS);
+//        actions.add(IHomeProvider.HOME_ACT_STATICS);
         Bundle staffSearchBundle = new Bundle();
         staffSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
         Bundle orderSearchBundle = new Bundle();
@@ -88,13 +97,13 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
         Bundle staffAllcoateBundle = new Bundle();
         staffAllcoateBundle.putBoolean(ConstantUtils.from_home, true);
         staffAllcoateBundle.putBoolean(ConstantUtils.CLICKABLE, true);
-        Bundle staffCollateBundle = new Bundle();
-        staffCollateBundle.putBoolean(ConstantUtils.CLICKABLE, true);
+//        Bundle staffCollateBundle = new Bundle();
+//        staffCollateBundle.putBoolean(ConstantUtils.CLICKABLE, true);
         Bundle commonRefundBundle = new Bundle();
         commonRefundBundle.putString(ConstantUtils.CustomersTopSysNo, ConstantUtils.SYS_NO);
         commonRefundBundle.putBoolean(ConstantUtils.CLICKABLE, true);
-        Bundle staticsBundle = new Bundle();
-        staticsBundle.putBoolean(ConstantUtils.CLICKABLE, false);
+//        Bundle staticsBundle = new Bundle();
+//        staticsBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 
         Bundle[] bundles = new Bundle[]{
                 staffSearchBundle,
@@ -102,9 +111,9 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
                 merchSearchBundle,
                 merchAllcoateBundle,
                 staffAllcoateBundle,
-                staffCollateBundle,
+//                staffCollateBundle,
                 commonRefundBundle,
-                staticsBundle
+//                staticsBundle
         };
         bean.setMenu_list(list);
         bean.setReses(reses);

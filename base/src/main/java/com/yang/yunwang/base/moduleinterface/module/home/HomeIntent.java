@@ -119,4 +119,9 @@ public class HomeIntent {
                 .withBundle(intent_result)
                 .navigation();
     }
+
+    public static void orderFilter() {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_ORDER_FILTER)
+                .navigation();
+    }
 }

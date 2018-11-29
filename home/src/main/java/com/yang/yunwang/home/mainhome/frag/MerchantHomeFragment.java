@@ -29,6 +29,9 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
     private PullToRefreshScrollView pullToRefreshScrollView;
 
     private MerchHomeContract.Presenter presnter;
+    private TextView title_cash_num;
+    private TextView right_cash_num;
+    private TextView left_cash_num;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_merchanthome, null);
-        new MerchHomePresenter(this,this.getContext());
+        new MerchHomePresenter(this, this.getContext());
         pullToRefreshScrollView = (PullToRefreshScrollView) view.findViewById(R.id.pull_refresh_scrollview);
         pullToRefreshScrollView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
         pullToRefreshScrollView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
@@ -48,7 +51,7 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
                 if (presnter != null) {
                     presnter.initData();
                 } else {
-                    new MerchHomePresenter(MerchantHomeFragment.this,MerchantHomeFragment.this.getContext());
+                    new MerchHomePresenter(MerchantHomeFragment.this, MerchantHomeFragment.this.getContext());
                     presnter.initData();
                 }
             }
@@ -57,14 +60,17 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
         text_orders_count = (TextView) view.findViewById(R.id.text_orders_count);
         text_total_cash = (TextView) view.findViewById(R.id.text_total_cash);
         rec_menu = (RecyclerView) view.findViewById(R.id.rec_menu);
+        title_cash_num = (TextView) view.findViewById(R.id.title_cash_num);
+        left_cash_num = (TextView) view.findViewById(R.id.left_cash_num);
+        right_cash_num = (TextView) view.findViewById(R.id.right_cash_num);
         presnter.initData();
         return view;
     }
 
     @Override
     public void setMenuAdapter(List<String> menu_list, int[] menu_res, int[] menu_res_selected, List<String> actios, Bundle[] bundles) {
-        CommonImageTextRecAdapter commonImageTextRecAdapter = new CommonImageTextRecAdapter(this.getContext(), menu_list, menu_res, menu_res_selected, actios,bundles, R.layout.rec_menu_item);
-        rec_menu.setLayoutManager(new GridLayoutManager(this.getContext(), 3));
+        CommonImageTextRecAdapter commonImageTextRecAdapter = new CommonImageTextRecAdapter(this.getContext(), menu_list, menu_res, menu_res_selected, actios, bundles, R.layout.rec_menu_item_new);
+        rec_menu.setLayoutManager(new GridLayoutManager(this.getContext(), 4));
         rec_menu.setAdapter(commonImageTextRecAdapter);
     }
 
@@ -73,12 +79,16 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
         text_total_fee.setText(total_fee);
         text_orders_count.setText("交易笔数：" + orders_count);
         text_total_cash.setText("汇总金额：" + total_cash);
+//        AmountUtils.changeF2YWithDDD(total_fee);
+//        title_cash_num.setText(total_fee);
+//        right_cash_num.setText(total_fee);
+//        left_cash_num.setText(total_fee);
         pullToRefreshScrollView.onRefreshComplete();
     }
 
     @Override
     public void setPresenter(MerchHomeContract.Presenter presenter) {
-        this.presnter=presenter;
+        this.presnter = presenter;
     }
 
 }

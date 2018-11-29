@@ -15,6 +15,14 @@ public class CommonShare {
     private static final String TYPE_DATA_K = "type_data_k";
     private static final String VERSION_S = "version_s";
     private static final String VERSION_S_K = "version_s_k";
+    private static final String REMEMBER_B = "remember_b";
+    private static final String REMEMBER_B_K = "remember_b_k";
+    private static final String REMEMBER_N = "remember_n";
+    private static final String REMEMBER_N_K = "remember_n_k";
+    private static final String REMEMBER_P = "remember_p";
+    private static final String REMEMBER_P_K = "remember_p_k";
+    private static final String REMEMBER_POS = "remember_pos";
+    private static final String REMEMBER_POS_K = "remember_pos_k";
     private static final String StrogeB = "StrogeB";
     private static final String StrogeB_K = "StrogeB_k";
     private static final String WxType = "WxType";
@@ -106,6 +114,14 @@ public class CommonShare {
         SharedPreferences stroage_b = context.getSharedPreferences(StrogeB, Context.MODE_PRIVATE);
         SharedPreferences wxPay = context.getSharedPreferences(WxType, Context.MODE_PRIVATE);
         SharedPreferences zfbPay = context.getSharedPreferences(ZfbType, Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferencesB = context.getSharedPreferences(REMEMBER_B, Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferencesN = context.getSharedPreferences(REMEMBER_N, Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferencesP = context.getSharedPreferences(REMEMBER_P, Context.MODE_PRIVATE);
+//        SharedPreferences sharedPreferencesPos = context.getSharedPreferences(REMEMBER_POS, Context.MODE_PRIVATE);
+//        sharedPreferencesPos.edit().clear().commit();
+//        sharedPreferencesB.edit().clear().commit();
+//        sharedPreferencesN.edit().clear().commit();
+//        sharedPreferencesP.edit().clear().commit();
         wxPay.edit().clear().commit();
         zfbPay.edit().clear().commit();
         stroage_b.edit().clear().commit();
@@ -238,5 +254,53 @@ public class CommonShare {
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putBoolean(PermissionBoolean_K, value);
         edit.commit();
+    }
+
+    public static void putBooleanRememberPwd(Context context, boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_B, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(REMEMBER_B_K, value);
+        edit.commit();
+    }
+
+    public static boolean getBooleanRememberPwd(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_B, Context.MODE_PRIVATE);
+        return sharedPreferences.getBoolean(REMEMBER_B_K, false);
+    }
+
+    public static void putRememberPwd(Context context, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_P, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString(REMEMBER_P_K, value);
+        edit.commit();
+    }
+
+    public static String getRememberPwd(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_P, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(REMEMBER_P_K, "");
+    }
+
+    public static void putRememberName(Context context, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_N, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putString(REMEMBER_N_K, value);
+        edit.commit();
+    }
+
+    public static String getRememberName(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_N, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(REMEMBER_N_K, "");
+    }
+
+    public static void putRememberPos(Context context, int value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_POS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putInt(REMEMBER_POS_K, value);
+        edit.commit();
+    }
+
+    public static int getRememberPos(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_POS, Context.MODE_PRIVATE);
+        return sharedPreferences.getInt(REMEMBER_POS_K, -1);
     }
 }

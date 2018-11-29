@@ -39,7 +39,7 @@ public class StartUpActivity extends AppCompatActivity implements StartUpContrac
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_startup);
-        StatusBarUtil.setTranslucent(this, 0);
+        StatusBarUtil.setTranslucent(this, 100);
         //done switch version
         //done change pic
         new StartUpPresenter(this, this);

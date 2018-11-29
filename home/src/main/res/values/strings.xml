@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="app_name">home</string>
     <string name="action_settings">Settings</string>
     <string name="default_1">张三</string>
@@ -23,7 +23,7 @@
     <!--登录-->
     <string name="btn_login">登录</string>
     <string name="hint_user">用户名</string>
-    <string name="hint_password">密码</string>
+    <string name="hint_password">密码:</string>
     <string name="tab_merchant">服务商/商户</string>
     <string name="tab_staff">员工</string>
     <string name="login_waiting">正在登录…</string>
@@ -74,13 +74,13 @@
     <!--服务商主界面-->
     <string-array name="service_rec_menu">
         <item>员工列表</item>
-        <item>订单查询</item>
+        <item>员工订单汇总</item>
         <item>商户查询</item>
         <item>商户权限分配</item>
         <item>员工权限分配</item>
-        <item>员工订单汇总</item>
+        <!--<item>员工订单汇总</item>-->
         <item>退款查询</item>
-        <item>统计</item>
+        <!--<item>统计</item>-->
     </string-array>
 
     <!--商户主界面-->
@@ -413,20 +413,20 @@
     <string-array name="staff_tab_list">
         <item>首页</item>
         <item>订单查询</item>
-        <item>商户查询</item>
+        <item>交易报表</item>
         <item>我的</item>
     </string-array>
 
     <string-array name="staff_tab_list_yg">
         <item>首页</item>
         <item>订单查询</item>
-        <item>退款</item>
+        <item>交易报表</item>
         <item>我的</item>
     </string-array>
     <string-array name="staff_tab_list_fs">
         <item>首页</item>
         <item>订单查询</item>
-        <item>员工列表</item>
+        <item>交易报表</item>
         <item>我的</item>
     </string-array>
 
@@ -460,5 +460,11 @@
     <string name="pl_order_nos">平台订单号</string>
     <string name="staff_pay_qrcode">支付二维码</string>
     <string name="dversion_way_name">多友财</string>
+    <string name="remember_pwd">记住密码</string>
+    <string name="change_yh">“改变生活 只可翼惠”</string>
+    <string name="yh_cop">由长春市翼惠网络技术有限公司提供服务</string>
+    <string name="comfirm">确定</string>
+    <string name="filter">筛选</string>
+    <string name="order_type">收款方式</string>
 
 </resources>

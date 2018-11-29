@@ -8,7 +8,7 @@
         android:id="@+id/rel_mine_header"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/blue_color">
+        android:background="@color/black_color">
 
         <TextView
             android:id="@+id/text_shop_info_title"
