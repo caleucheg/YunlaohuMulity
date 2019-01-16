@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rel_mine_header"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/black_color"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_shop_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/order_search"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_20sp" />
+
+        <TextView
+            android:id="@+id/tv_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/filter"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/text_size_20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_no_data"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel_mine_header"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/imageView_no_data"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/no_data"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:text="暂无相关数据"
+            android:textColor="@color/grey_color_text_sw"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="更多订单点击右上角“筛选”查询"
+            android:textColor="@color/grey_color_text_sw"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_rec_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel_mine_header"
+        android:background="@color/grey_color_back_ground"
+        android:descendantFocusability="blocksDescendants">
+
+        <TextView
+            android:id="@+id/time_range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="left"
+            android:paddingLeft="@dimen/margin_15dp"
+            android:text="2018-12-12 12:11:11~2018-12-12 12:11:11"
+            android:textColor="@color/black_color_text"
+            android:textSize="@dimen/text_size_14sp"
+            android:visibility="invisible" />
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/xrec_order_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/time_range"
+            android:scrollbars="none" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

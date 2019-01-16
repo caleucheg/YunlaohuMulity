@@ -81,6 +81,17 @@ public class Model implements Serializable {
     @SerializedName("YwMch_id")
     private String mYwMchId;
 
+    public Model() {
+    }
+
+    public Model(Long mTotalFee, Long mCashFee, String mOutTradeNo, String mPayType, String mTimeStart) {
+        this.mTotalFee = mTotalFee;
+        this.mCashFee = mCashFee;
+        this.mOutTradeNo = mOutTradeNo;
+        this.mPayType = mPayType;
+        this.mTimeStart = mTimeStart;
+    }
+
     public Object getAppid() {
         return mAppid;
     }

@@ -35,6 +35,9 @@ import com.yang.yunwang.base.util.InsertLogUtils;
 import com.yang.yunwang.base.util.LG;
 import com.yang.yunwang.base.util.PayLogQueu;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
@@ -77,7 +80,7 @@ public abstract class BaseApplication extends Application {
                     Log.i("baseApp", size + "--insert_log_size");
                 } else {
                     //网络断开
-                    Toast.makeText(context, "网络已断开,请重新连接", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "网络连接异常，请检查您的手机网络", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -94,7 +97,7 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         configUnits();
         LG.isDebug = BuildConfig.DEBUG;
-//        KLog.init(BuildConfig.DEBUG, "YUN_LOG");
+        KLog.init(BuildConfig.DEBUG, "YUN_LOG");
         Log.i("baseApp", "onccc");
         this.mContext = this;
         initRouter();
@@ -111,6 +114,7 @@ public abstract class BaseApplication extends Application {
 //        }
 //        LeakCanary.install(this);
         rALifeC();
+//        closeAndroidPDialog();
 //        initNotifi();
     }
 
@@ -353,4 +357,27 @@ public abstract class BaseApplication extends Application {
                 //如果大家生活中没有妹妹, 那我们就让项目中最不缺的就是妹妹!
                 .setSupportSubunits(Subunits.NONE);
     }
+
+    private void closeAndroidPDialog() {
+        try {
+            Class aClass = Class.forName("android.content.pm.PackageParser$Package");
+            Constructor declaredConstructor = aClass.getDeclaredConstructor(String.class);
+            declaredConstructor.setAccessible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            Class cls = Class.forName("android.app.ActivityThread");
+            Method declaredMethod = cls.getDeclaredMethod("currentActivityThread");
+            declaredMethod.setAccessible(true);
+            Object activityThread = declaredMethod.invoke(null);
+            Field mHiddenApiWarningShown = cls.getDeclaredField("mHiddenApiWarningShown");
+            mHiddenApiWarningShown.setAccessible(true);
+            mHiddenApiWarningShown.setBoolean(activityThread, true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

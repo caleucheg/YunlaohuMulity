@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/blue_small_coner_shape"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:gravity="center_horizontal|left"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_cus_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:text="1321321321313212315646565454656546566"
+            android:textColor="@color/black_color_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_cus_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:text="2018-11-27 16:55:55"
+            android:textColor="@color/black_color_text"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:gravity="center_horizontal|right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_trade_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥"
+            android:textColor="@color/black_color_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1,654,545.00"
+            android:textColor="@color/blue_color_text"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -116,7 +116,6 @@ public class LoginPagePresenter implements LoginPageContract.Presenter {
         accessToken.setPassWord(password);
 
         if (position == 0) {
-
             HomeREService.getInstance(context)
                     .merchLogin(accessToken)
                     .subscribeOn(Schedulers.io())
@@ -150,15 +149,20 @@ public class LoginPagePresenter implements LoginPageContract.Presenter {
                                 }
                                 initMarkWX();
                             } else {
-                                view.loginOnError();
+                                view.loginOnError(false);
                                 view.dismissDialog();
                             }
                         }
 
                         @Override
                         public void onError(ExceptionHandle.ResponeThrowable responeThrowable) {
-                            view.loginOnError();
-                            view.dismissDialog();
+                            try {
+                                view.loginOnError(true);
+                                view.dismissDialog();
+                            } catch (Exception e) {
+                                view.loginOnError(true);
+                                view.dismissDialog();
+                            }
                         }
                     });
 
@@ -186,15 +190,20 @@ public class LoginPagePresenter implements LoginPageContract.Presenter {
                                 String[] valueA = new String[]{user, ConstantUtils.SYS_NO, ConstantUtils.CUSTOMER, ConstantUtils.CUSTOMERS_TYPE, password, position + ""};
                                 CommonShare.putLoginData(context, key, valueA);
                             } else {
-                                view.loginOnError();
+                                view.loginOnError(false);
                                 view.dismissDialog();
                             }
                         }
 
                         @Override
                         public void onError(ExceptionHandle.ResponeThrowable responeThrowable) {
-                            view.loginOnError();
-                            view.dismissDialog();
+                            try {
+                                view.loginOnError(true);
+                                view.dismissDialog();
+                            } catch (Exception e) {
+                                view.loginOnError(true);
+                                view.dismissDialog();
+                            }
                         }
                     });
 

@@ -45,7 +45,6 @@
     <string-array name="staff_main_function_list">
         <item>智能扫码</item>
         <item>二维码</item>
-        <item>订单查询</item>
     </string-array>
 
     <!--子功能菜单标题-->
@@ -57,13 +56,13 @@
         <!-- <item>结算查询</item>
          <item>结算</item>-->
         <item>支付二维码</item>
-        <item>费率订单</item>
+        <!--<item>费率订单</item>-->
         <item>订单详情</item>
     </string-array>
 
     <!--服务商员工主界面-->
     <string-array name="merchant_main_function_list">
-        <item>订单查询</item>
+        <item>费率订单</item>
         <item>商户查询</item>
     </string-array>
     <!--服务商员工下面菜单界面-->
@@ -86,14 +85,14 @@
     <!--商户主界面-->
     <string-array name="merchant_rec_menu">
         <item>员工列表</item>
-        <item>订单查询</item>
+        <item>员工交易汇总</item>
         <item>员工二维码</item>
         <item>员工权限分配</item>
         <item>费率订单</item>
         <!--<item>上级费率订单</item>-->
         <item>退款查询</item>
         <item>订单详情</item>
-        <item>日交易汇总</item>
+        <!--<item>日交易汇总</item>-->
         <item>商户-退款</item>
     </string-array>
 

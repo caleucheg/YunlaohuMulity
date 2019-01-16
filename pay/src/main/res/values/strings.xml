@@ -4,7 +4,7 @@
     <string name="qr_title">二维码支付</string>
     <string name="qr_edit_hint">输入金额</string>
     <string name="qr_success">支付成功</string>
-    <string name="qr_error">&#12288;&#12288;支付失败\n请重新生成二维码</string>
+    <string name="qr_error">支付失败\n请重新生成二维码</string>
     <!--二维码扫描-->
     <string name="scan_title">智能扫码</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
@@ -18,5 +18,5 @@
     <string name="alert_positive">确定</string>
     <string name="alert_native">取消</string>
     <string name="orders_search_waitting">正在加载数据，请稍后...</string>
-    <string name="pay_config_error">&#12288;支付方式改变\n请重新生成二维码</string>
+    <string name="pay_config_error">支付方式改变\n请重新生成二维码</string>
 </resources>

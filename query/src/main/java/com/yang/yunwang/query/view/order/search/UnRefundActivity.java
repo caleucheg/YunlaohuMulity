@@ -171,7 +171,7 @@ public class UnRefundActivity extends BaseActivity implements View.OnClickListen
         if (dateTimePicKDialog == null) {
             dateTimePicKDialog = new DateTimePickDialogUtil(
                     UnRefundActivity.this, common_edittext.getText().toString().trim());
-            dateTimePicKDialog.dateTimePicKDialog(common_edittext);
+            dateTimePicKDialog.dateTimePicKDialog(common_edittext, common_edittext.getText().toString().trim());
             int i = common_edittext.getId();
             if (i == R.id.edit_unrefund_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);
@@ -181,7 +181,7 @@ public class UnRefundActivity extends BaseActivity implements View.OnClickListen
 
             }
         } else {
-            dateTimePicKDialog.dateTimePicKDialog(common_edittext);
+            dateTimePicKDialog.dateTimePicKDialog(common_edittext, common_edittext.getText().toString().trim());
             int i = common_edittext.getId();
             if (i == R.id.edit_unrefund_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);

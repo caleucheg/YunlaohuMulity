@@ -87,4 +87,5 @@ dependencies {
     api 'me.jessyan:autosize:1.1.0'
     api 'com.android.support.constraint:constraint-layout:2.0.0-alpha2'
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    api 'com.kw:rxbus:1.0.1'
 }

@@ -95,7 +95,7 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
         secondPicker.setFormatter(this);
         secondPicker.setOnValueChangedListener(this);
         secondPicker.setOnScrollListener(this);
-        secondPicker.setMaxValue(60);
+        secondPicker.setMaxValue(59);
         secondPicker.setMinValue(0);
         secondPicker.setValue(calendar.get(Calendar.SECOND));
     }
@@ -104,14 +104,16 @@ public class DateTimePickDialogUtil implements DatePicker.OnDateChangedListener,
      * 弹出日期时间选择框方法
      *
      * @param inputDate :为需要设置的日期时间文本编辑框
+     * @param trim
      * @return
      */
-    public AlertDialog dateTimePicKDialog(final EditText inputDate) {
+    public AlertDialog dateTimePicKDialog(final EditText inputDate, String trim) {
         LinearLayout dateTimeLayout = (LinearLayout) activity
                 .getLayoutInflater().inflate(R.layout.common_datetime, null);
         datePicker = (DatePicker) dateTimeLayout.findViewById(R.id.datepicker);
         timePicker = (TimePicker) dateTimeLayout.findViewById(R.id.timepicker);
         secondPicker = (NumberPicker) dateTimeLayout.findViewById(R.id.second_picker);
+        this.initDateTime = trim;
         init(datePicker, timePicker, secondPicker);
         timePicker.setIs24HourView(true);
         timePicker.setOnTimeChangedListener(this);

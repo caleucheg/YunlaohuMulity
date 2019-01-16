@@ -3,8 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/diver"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_1dp"
+        android:background="@color/divide_gray_color" />
     <RelativeLayout
         android:id="@+id/rel_list_item_area"
+        android:layout_below="@+id/diver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

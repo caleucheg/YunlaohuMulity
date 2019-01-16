@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.socks.library.KLog;
 import com.yang.yunwang.base.ret.BaseObserver;
 import com.yang.yunwang.base.ret.ExceptionHandle;
@@ -68,15 +69,15 @@ public class OrderListInfoPresenter implements OrderListInfoContract.Presenter {
                     .subscribe(new BaseObserver<OrderSearchResp>(context) {
                         @Override
                         protected void doOnNext(OrderSearchResp value) {
-                            if (value.getModel().size()>0){
+                            if (value.getModel().size() > 0) {
                                 Model bean = value.getModel().get(0);
                                 String sys_no = bean.getSysNo() + "";
                                 String code = bean.getOutTradeNo();
                                 String money = "";
                                 String moneyCash = "";
                                 try {
-                                    money = AmountUtils.changeF2Y(bean.getTotalFee());
-                                    moneyCash = AmountUtils.changeF2Y(bean.getCashFee());
+                                    money = AmountUtils.changeF2YWithDDD(bean.getTotalFee());
+                                    moneyCash = AmountUtils.changeF2YWithDDD(bean.getCashFee());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -86,34 +87,62 @@ public class OrderListInfoPresenter implements OrderListInfoContract.Presenter {
                                 String loginname = bean.getLoginName();
                                 String displayname = bean.getDisplayName();
                                 view.setInfo(sys_no, customer, code, pay_type, money, date, loginname, displayname, moneyCash);
-                            }else {
-                                Toast.makeText(context,"暂无此订单数据",Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(context, "暂无此订单数据", Toast.LENGTH_SHORT).show();
                             }
                         }
+
                         @Override
                         public void onError(ExceptionHandle.ResponeThrowable responeThrowable) {
-                            Toast.makeText(context,"网络异常,暂无此订单数据",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "网络异常,暂无此订单数据", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
-            Model bean = (Model) intent.getSerializableExtra("bean");
-            KLog.i(bean);
-            String sys_no = bean.getSysNo() + "";
-            String code = bean.getOutTradeNo();
-            String money = "";
-            String moneyCash = "";
-            try {
-                money = AmountUtils.changeF2Y(bean.getTotalFee());
-                moneyCash = AmountUtils.changeF2Y(bean.getCashFee());
-            } catch (Exception e) {
-                e.printStackTrace();
+            boolean isNewOrder = intent.getBooleanExtra("isNewOrder", false);
+            if (isNewOrder) {
+                String json = intent.getStringExtra("bean");
+                if (!TextUtils.isEmpty(json)) {
+                    Gson gson = new Gson();
+                    Model bean = gson.fromJson(json, Model.class);
+                    KLog.i(bean);
+                    String sys_no = bean.getSysNo() + "";
+                    String code = bean.getOutTradeNo();
+                    String money = "";
+                    String moneyCash = "";
+                    try {
+                        money = AmountUtils.changeF2YWithDDD(bean.getTotalFee());
+                        moneyCash = AmountUtils.changeF2YWithDDD(bean.getCashFee());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    String date = bean.getTimeStart();
+                    String pay_type = bean.getPayType();
+                    String customer = bean.getCustomerName();
+                    String loginname = bean.getLoginName();
+                    String displayname = bean.getDisplayName();
+                    view.setInfo(sys_no, customer, code, pay_type, money, date, loginname, displayname, moneyCash);
+                }
+
+            } else {
+                Model bean = (Model) intent.getSerializableExtra("bean");
+                KLog.i(bean);
+                String sys_no = bean.getSysNo() + "";
+                String code = bean.getOutTradeNo();
+                String money = "";
+                String moneyCash = "";
+                try {
+                    money = AmountUtils.changeF2Y(bean.getTotalFee());
+                    moneyCash = AmountUtils.changeF2Y(bean.getCashFee());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                String date = bean.getTimeStart();
+                String pay_type = bean.getPayType();
+                String customer = bean.getCustomerName();
+                String loginname = bean.getLoginName();
+                String displayname = bean.getDisplayName();
+                view.setInfo(sys_no, customer, code, pay_type, money, date, loginname, displayname, moneyCash);
             }
-            String date = bean.getTimeStart();
-            String pay_type = bean.getPayType();
-            String customer = bean.getCustomerName();
-            String loginname = bean.getLoginName();
-            String displayname = bean.getDisplayName();
-            view.setInfo(sys_no, customer, code, pay_type, money, date, loginname, displayname, moneyCash);
         }
 
     }

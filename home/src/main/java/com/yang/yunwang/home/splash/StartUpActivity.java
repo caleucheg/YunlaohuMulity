@@ -52,16 +52,25 @@ public class StartUpActivity extends AppCompatActivity implements StartUpContrac
         KLog.i("hasModule"+ !DycLibIntent.hasModule());
         boolean netV = NetStateUtils.isNetworkConnected(this);
         if (!netV) {
-            new AlertDialog.Builder(this)
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
                     .setTitle("网络异常")
                     .setMessage("当前网络连接异常,请检查网络后重新登录")
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            HomeIntent.login();
                             StartUpActivity.this.finish();
                         }
                     })
-                    .create().show();
+                    .create();
+            alertDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    HomeIntent.login();
+                    StartUpActivity.this.finish();
+                }
+            });
+            alertDialog.show();
         } else {
             CommonShare.putJPushIDBoolean(getApplicationContext(), false);
             String sysNo = CommonShare.getLoginData(this, "SysNo", "");
@@ -116,14 +125,32 @@ public class StartUpActivity extends AppCompatActivity implements StartUpContrac
 
     @Override
     public void jumpMain() {
-        HomeIntent.launchHomePage();
-        KLog.i("home");
-        this.finish();
+        long lastLoginTime = CommonShare.getLastLoginTime(this);
+        long nowTime = System.currentTimeMillis();
+        KLog.i(lastLoginTime);
+        KLog.i(nowTime);
+        int days = (int) ((nowTime - lastLoginTime) / (1000 * 60 * 60 * 24));
+        KLog.i(days);
+        if (days > 6) {
+            CommonShare.clearLogin(this);
+            jumpLogin();
+        } else {
+            HomeIntent.launchHomePage();
+            KLog.i("home");
+            this.finish();
+        }
 
     }
 
     @Override
     public void jumpLogin() {
+        long lastLoginTime = CommonShare.getLastLoginTime(this);
+        long nowTime = System.currentTimeMillis();
+        int days = (int) ((nowTime - lastLoginTime) / (1000 * 60 * 60 * 24));
+        KLog.i(days);
+        if (days > 6) {
+            CommonShare.clearLogin(this);
+        }
         HomeIntent.login();
         KLog.i("login");
         this.finish();

@@ -120,8 +120,37 @@ public class HomeIntent {
                 .navigation();
     }
 
-    public static void orderFilter() {
+    public static void orderFilter(MyBundle intent_result) {
         MyRouter.newInstance(IHomeProvider.HOME_ACT_ORDER_FILTER)
+                .withBundle(intent_result)
+                .navigation();
+    }
+
+    public static void reportNameFilter() {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_REPORT_NAME_FILTER)
+                .navigation();
+    }
+
+    public static void reportTimeFilter() {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_REPORT_TIME_FILTER)
+                .navigation();
+    }
+
+    public static void homeNewOrderList(MyBundle intent_result) {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_NEW_ORDER_LIST)
+                .withBundle(intent_result)
+                .navigation();
+    }
+
+    public static void cusUserAlList(MyBundle intent_result) {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_CUS_USER_AL_LIST)
+                .withBundle(intent_result)
+                .navigation();
+    }
+
+    public static void cusUserAlFilter(MyBundle intent_result) {
+        MyRouter.newInstance(IHomeProvider.HOME_ACT_CUS_USER_AL_FILTER)
+                .withBundle(intent_result)
                 .navigation();
     }
 }

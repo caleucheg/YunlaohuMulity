@@ -175,6 +175,7 @@ public class OrderSettlementPresenter implements OrderSettlementContract.Present
                         progressDialog.dismiss();
                     } else if (isRefresh) {
                         bean = value;
+                        total_count = value.getTotalCount();
                         view.setAdapter(bean, staff_id);
                         view.refreshComplete();
                         view.dataNotifyChanged();

@@ -209,7 +209,7 @@ public class RefundPrintSearchActivity extends BaseActivity implements View.OnCl
         if (dateTimePicKDialog == null) {
             dateTimePicKDialog = new DateTimePickDialogUtil(
                     RefundPrintSearchActivity.this, common_edittext.getText().toString().trim());
-            dateTimePicKDialog.dateTimePicKDialog(common_edittext);
+            dateTimePicKDialog.dateTimePicKDialog(common_edittext, common_edittext.getText().toString().trim());
             int i = common_edittext.getId();
             if (i == R.id.edit_refund_start_time) {
                 image_clear_refund_starttime.setVisibility(View.VISIBLE);
@@ -219,7 +219,7 @@ public class RefundPrintSearchActivity extends BaseActivity implements View.OnCl
 
             }
         } else {
-            dateTimePicKDialog.dateTimePicKDialog(common_edittext);
+            dateTimePicKDialog.dateTimePicKDialog(common_edittext, common_edittext.getText().toString().trim());
             int i = common_edittext.getId();
             if (i == R.id.edit_refund_start_time) {
                 image_clear_refund_starttime.setVisibility(View.VISIBLE);

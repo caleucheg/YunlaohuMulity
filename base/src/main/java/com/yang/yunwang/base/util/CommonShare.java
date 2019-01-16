@@ -23,6 +23,9 @@ public class CommonShare {
     private static final String REMEMBER_P_K = "remember_p_k";
     private static final String REMEMBER_POS = "remember_pos";
     private static final String REMEMBER_POS_K = "remember_pos_k";
+    private static final String LAST_LOGIN_TIME = "last_login";
+    private static final String LAST_LOGIN_TIME_K = "last_login_k";
+
     private static final String StrogeB = "StrogeB";
     private static final String StrogeB_K = "StrogeB_k";
     private static final String WxType = "WxType";
@@ -302,5 +305,30 @@ public class CommonShare {
     public static int getRememberPos(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(REMEMBER_POS, Context.MODE_PRIVATE);
         return sharedPreferences.getInt(REMEMBER_POS_K, -1);
+    }
+
+    public static void putLastLoginTime(Context context, long value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(LAST_LOGIN_TIME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putLong(LAST_LOGIN_TIME_K, value);
+        edit.commit();
+    }
+
+    public static long getLastLoginTime(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(LAST_LOGIN_TIME, Context.MODE_PRIVATE);
+        return sharedPreferences.getLong(LAST_LOGIN_TIME_K, 0);
+    }
+
+    public static void clearLogin(Context context) {
+        SharedPreferences sharedPreferencesPos = context.getSharedPreferences(REMEMBER_POS, Context.MODE_PRIVATE);
+        sharedPreferencesPos.edit().clear().commit();
+        SharedPreferences sharedPreferencesIsRem = context.getSharedPreferences(REMEMBER_B, Context.MODE_PRIVATE);
+        sharedPreferencesIsRem.edit().clear().commit();
+        SharedPreferences sharedPreferencesName = context.getSharedPreferences(REMEMBER_N, Context.MODE_PRIVATE);
+        sharedPreferencesName.edit().clear().commit();
+        SharedPreferences sharedPreferencesPwd = context.getSharedPreferences(REMEMBER_P, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(LAST_LOGIN_TIME, Context.MODE_PRIVATE);
+        sharedPreferences.edit().clear().commit();
+        sharedPreferencesPwd.edit().clear().commit();
     }
 }

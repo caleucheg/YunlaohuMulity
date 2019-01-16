@@ -164,6 +164,7 @@ public class CommonRefundListPresenter implements CommonRefundListContract.Prese
                     } else if (isRefresh) {
                         bean = value;
                         view.setAdapter(bean);
+                        total_count = value.getTotalCount();
                         view.refreshComplete();
                         view.dataNotifyChanged();
                     } else {

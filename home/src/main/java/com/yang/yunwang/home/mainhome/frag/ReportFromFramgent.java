@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.socks.library.KLog;
-import com.yang.yunwang.base.ui.ClearEditText;
 import com.yang.yunwang.home.R;
 import com.yang.yunwang.home.mainhome.contract.ReportFromContract;
 import com.yang.yunwang.home.mainhome.presenter.ReportFromPresenter;
@@ -28,7 +27,7 @@ public class ReportFromFramgent extends Fragment implements ReportFromContract.V
     /**
      * 全部商户
      */
-    private ClearEditText et_customer_search;
+    private TextView et_customer_search;
     /**
      * 999,99,999,999.00
      */
@@ -79,6 +78,10 @@ public class ReportFromFramgent extends Fragment implements ReportFromContract.V
     private TextView tv_zfb_refund_fee_count;
     private SegmentTabLayout tab_date;
     private String[] mTitles = {"昨日", "今日", "自定义"};
+    /**
+     * 2018-12-03 08:00:00 -- 2018-12-03 08:00:00
+     */
+    private TextView tv_sel_time;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -108,7 +111,9 @@ public class ReportFromFramgent extends Fragment implements ReportFromContract.V
                 int pos = intent.getIntExtra("position", -1);
                 KLog.i(pos);
                 if (pos == 2) {
-                    presenter.initData();
+                    boolean isAllCus = true;
+                    String cusNo = "";
+                    presenter.initData("", isAllCus, cusNo);
                 }
             }
 
@@ -140,7 +145,7 @@ public class ReportFromFramgent extends Fragment implements ReportFromContract.V
 
             }
         });
-        et_customer_search = (ClearEditText) view.findViewById(R.id.et_customer_search);
+        et_customer_search = (TextView) view.findViewById(R.id.et_customer_search);
         tv_center_cash = (TextView) view.findViewById(R.id.tv_center_cash);
         tv_order_fee = (TextView) view.findViewById(R.id.tv_order_fee);
         tv_trade_count = (TextView) view.findViewById(R.id.tv_trade_count);
@@ -153,10 +158,26 @@ public class ReportFromFramgent extends Fragment implements ReportFromContract.V
         tv_zfb_cash_fee = (TextView) view.findViewById(R.id.tv_zfb_cash_fee);
         tv_zfb_order_trade_count = (TextView) view.findViewById(R.id.tv_zfb_order_trade_count);
         tv_zfb_refund_fee_count = (TextView) view.findViewById(R.id.tv_zfb_refund_fee_count);
+        tv_sel_time = (TextView) view.findViewById(R.id.tv_sel_time);
+    }
+
+    @Override
+    public void setReportInfo(String centerCash, String orderFee, String tradeCount, String refundFeeCount, String centerCashWx, String orderFeeWx, String tradeCountWx, String refundFeeCountWx, String centerCashZfb, String orderFeeZfb, String tradeCountZfb, String refundFeeCountZfb) {
+
     }
 
     @Override
     public void refreshView() {
+
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void dismissDialog() {
 
     }
 

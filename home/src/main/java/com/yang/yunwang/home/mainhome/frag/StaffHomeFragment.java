@@ -102,6 +102,16 @@ public class StaffHomeFragment extends Fragment implements StaffHomeContract.Vie
         this.text_top_name.setText(top_name);
     }
 
+    @Override
+    public void setHomeInfo(String cusType, String cashFee, String tradeCount, String orderFee) {
+
+    }
+
+    @Override
+    public void setHomeActiveCus(String activeCus) {
+
+    }
+
 
     public void requestOnNetworkTimeLong() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this.getContext());

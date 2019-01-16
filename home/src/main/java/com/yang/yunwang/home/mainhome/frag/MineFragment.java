@@ -1,6 +1,7 @@
 package com.yang.yunwang.home.mainhome.frag;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.yang.yunwang.base.util.CommonShare;
 import com.yang.yunwang.base.util.ConstantUtils;
 import com.yang.yunwang.base.util.JPUtils;
 import com.yang.yunwang.home.R;
+import com.yang.yunwang.home.mainhome.view.activity.NewTestActivity;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -72,18 +74,23 @@ public class MineFragment extends Fragment implements View.OnClickListener {
             rel_userinfo.setOnClickListener(this);
             btn_logout.setOnClickListener(this);
 
-//            Button button_test =  view.findViewById(R.id.button_test);
-//            button_test.setVisibility(View.VISIBLE);
-//            button_test.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    try {
+            Button button_test = view.findViewById(R.id.button_test);
+            button_test.setVisibility(View.VISIBLE);
+            button_test.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
 //                        KLog.i(AmountUtils.changeF2Y(10000000L));
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            });
+
+//                        HomeIntent.reportTimeFilter();
+
+                        Intent intent = new Intent(MineFragment.this.getContext(), NewTestActivity.class);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
         return view;
     }

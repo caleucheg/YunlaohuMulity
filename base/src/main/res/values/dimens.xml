@@ -48,4 +48,5 @@
     <dimen name="margin_32dp">32dp</dimen>
     <dimen name="margin_95dp">95dp</dimen>
     <dimen name="margin_100dp">100dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
 </resources>

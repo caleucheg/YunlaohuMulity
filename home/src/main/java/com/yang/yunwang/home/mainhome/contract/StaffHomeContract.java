@@ -39,9 +39,15 @@ public interface StaffHomeContract {
         void setHeaderTitle(String title);
 
         void setTopName(String top_name);
+
+        void setHomeInfo(String cusType, String cashFee, String tradeCount, String orderFee);
+
+        void setHomeActiveCus(String activeCus);
     }
 
     interface Presenter {
         void initData(String sys_no, String customer);
+
+        void initHomePage();
     }
 }

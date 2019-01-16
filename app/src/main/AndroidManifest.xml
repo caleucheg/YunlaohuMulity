@@ -289,6 +289,69 @@
             </intent-filter>
 
         </service>
+
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.NewOrderFilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.ReportNameFilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.ReportTimeFilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.activity.NewTestActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.activity.MerchantHomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.activity.StaffHomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.activity.MineActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.activity.ReportFromActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.NewOrdersListInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.query.view.commoncard.CommonCardCusActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.CusUserAllcoateFilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.yang.yunwang.home.mainhome.view.CusUserAlListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

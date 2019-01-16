@@ -165,9 +165,9 @@ public class ConstantUtils {
     public static boolean isGetPassageMark = false;
     public static boolean isGetReID = false;
     //        private static String BASE = "https://pos.yunlaohu.cn/";
-//    public static String BASE = "http://css.yunlaohu.cn/";
+    public static String BASE = "http://css.yunlaohu.cn/";
 //    public static String BASE = "http://suibian.yunlaohu.cn/";
-    public static String BASE = "https://androidapi.yunlaohu.cn/";
+//    public static String BASE = "https://androidapi.yunlaohu.cn/";
     //    private static String BASE_TEST_S = "http://suibian.yunlaohu.cn/";
     //支付类型码表
     public static final String URL_PASSAGE_WAY_LIST = BASE + "IPP3Customers/SystemPassageWayList";

@@ -1,12 +1,10 @@
 package com.yang.yunwang.home.mainhome.bean;
 
-import android.support.v4.app.Fragment;
-
 import java.util.List;
 
 public class StaffBean {
 
-    private List<Fragment> view_list;
+    private List<android.view.View> view_list;
     private List<String> tab_list;
     private int[] tab_res;
 
@@ -19,11 +17,11 @@ public class StaffBean {
         this.tab_res = tab_res;
     }
 
-    public List<Fragment> getView_list() {
+    public List<android.view.View> getView_list() {
         return view_list;
     }
 
-    public void setView_list(List<Fragment> view_list) {
+    public void setView_list(List<android.view.View> view_list) {
         this.view_list = view_list;
     }
 

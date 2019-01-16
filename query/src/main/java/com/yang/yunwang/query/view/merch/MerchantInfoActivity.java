@@ -243,7 +243,8 @@ public class MerchantInfoActivity extends BaseActivity implements MerchInfoContr
             } else {
                 MyBundle intent;
                 intent = new MyBundle();//this, OrdersSearchActivity.class
-                intent.put("shop_info_customer", edit_shop_info_customer.getText().toString());
+                intent.put("order_search_customer", edit_shop_info_customer.getText().toString());
+                intent.put("SHOP_id", edit_shop_info_id.getText().toString().trim());
 //                this.startActivity(intent);
                 OrdersIntent.orderSearch(intent);
             }

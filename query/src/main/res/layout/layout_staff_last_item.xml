@@ -8,6 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_1dp"
+            android:background="@color/divide_gray_color" />
         <ImageView
             android:id="@+id/image_order_logo"
             android:layout_width="wrap_content"

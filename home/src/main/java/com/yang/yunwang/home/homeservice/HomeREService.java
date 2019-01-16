@@ -3,6 +3,7 @@ package com.yang.yunwang.home.homeservice;
 import android.content.Context;
 
 import com.google.gson.JsonArray;
+import com.yang.yunwang.base.basereq.bean.merchlogin.MerchLoginResp;
 import com.yang.yunwang.base.basereq.bean.staffinfo.StaffInfoReq;
 import com.yang.yunwang.base.basereq.bean.stafflogin.StaffLoginResp;
 import com.yang.yunwang.base.ret.HttpsServiceGenerator;
@@ -20,18 +21,35 @@ import com.yang.yunwang.home.homeservice.bean.StaffAllcoateReq;
 import com.yang.yunwang.home.homeservice.bean.StaffAllcoateResp;
 import com.yang.yunwang.home.homeservice.bean.VersionCodeReq;
 import com.yang.yunwang.home.homeservice.bean.VersionCodeResp;
-import com.yang.yunwang.base.basereq.bean.merchlogin.MerchLoginResp;
 import com.yang.yunwang.home.mainhome.bean.CommonClassProReq;
 import com.yang.yunwang.home.mainhome.bean.CusClassResp;
 import com.yang.yunwang.home.mainhome.bean.ProviceResp;
 import com.yang.yunwang.home.mainhome.bean.ResetPwdReq;
 import com.yang.yunwang.home.mainhome.bean.ResetPwdResp;
+import com.yang.yunwang.home.mainhome.bean.cusallcoate.request.CusUserAllcoateReq;
+import com.yang.yunwang.home.mainhome.bean.cusallcoate.respone.CusUserAllcoateResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.customer.ShopTotalInfoReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.customer.ShopTotalInfoResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.serverstaff.active.ServerStaffActiveCusReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.serverstaff.active.ServerStaffActiveCusResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.serverstaff.totalinfo.ServerStaffTotalInfoReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.serverstaff.totalinfo.ServerStaffTotalInfoResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.services.activie.ServiceActiveCusReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.services.activie.ServiceActiveCusResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.services.totalinfo.ServiceTotalInfoReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.services.totalinfo.ServiceTotalResp;
+import com.yang.yunwang.home.mainhome.bean.homepage.staff.StaffTotalInfoReq;
+import com.yang.yunwang.home.mainhome.bean.homepage.staff.StaffTotalInfoResp;
+import com.yang.yunwang.home.mainhome.bean.ordersearch.ordernew.request.CommonNewOrderReq;
+import com.yang.yunwang.home.mainhome.bean.ordersearch.ordernew.respone.CommonNewOrderResp;
 import com.yang.yunwang.home.mainhome.bean.regist.CusRegistReq;
 import com.yang.yunwang.home.mainhome.bean.regist.CusRegistResp;
 import com.yang.yunwang.home.mainhome.bean.regist.InsertDefaultRoleReq;
 import com.yang.yunwang.home.mainhome.bean.regist.InsertPassageReq;
 import com.yang.yunwang.home.mainhome.bean.regist.InsertRateReq;
 import com.yang.yunwang.home.mainhome.bean.regist.RegistCommonResp;
+import com.yang.yunwang.home.mainhome.bean.report.CommonReportReq;
+import com.yang.yunwang.home.mainhome.bean.report.resp.CommonReportResp;
 import com.yang.yunwang.home.mainhome.bean.update.CommonUpdateResp;
 import com.yang.yunwang.home.mainhome.bean.update.MerchUpdateReq;
 import com.yang.yunwang.home.mainhome.bean.update.StaffUpdateReq;
@@ -270,4 +288,96 @@ public class HomeREService {
         return mBalanceService.updateStaffInfo(accessToken);
     }
 
+    /**
+     * IPP3Order/IPP3Order_Group_Customer
+     *
+     * @param accessToken a
+     * @return a
+     */
+    public Observable<ServiceTotalResp> serviceTotalInfo(ServiceTotalInfoReq accessToken) {
+        return mBalanceService.serviceTotalInfo(accessToken);
+    }
+
+    /**
+     * IPP3Order/IPP3Order_Group_Customer
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<ShopTotalInfoResp> shopTotalInfo(ShopTotalInfoReq accessToken) {
+        return mBalanceService.shopTotalInfo(accessToken);
+    }
+
+    /**
+     * IPP3OrderPassage/IPP3Order_Master_Fund_Group_Customer
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<ServiceActiveCusResp> serviceActive(ServiceActiveCusReq accessToken) {
+        return mBalanceService.serviceActive(accessToken);
+    }
+
+
+    /**
+     * IPP3Order/IPP3Order_Group_CustomerUser
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<ServerStaffTotalInfoResp> serverStaffTotalInfo(ServerStaffTotalInfoReq accessToken) {
+        return mBalanceService.serverStaffTotalInfo(accessToken);
+    }
+
+
+    /**
+     * IPP3Order/IPP3Order_Group_ShopUser
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<StaffTotalInfoResp> staffTotalInfo(StaffTotalInfoReq accessToken) {
+        return mBalanceService.staffTotalInfo(accessToken);
+    }
+
+    /**
+     * IPP3OrderPassage/IPP3Order_Master_Fund_Group_CustomerUser
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<ServerStaffActiveCusResp> serverStaffActiveCus(ServerStaffActiveCusReq accessToken) {
+        return mBalanceService.serverStaffActiveCus(accessToken);
+    }
+
+
+    /**
+     * IPP3OrderPassage/SP_Master_Passage_Customer_List
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<CommonNewOrderResp> orderNewSearch(CommonNewOrderReq accessToken) {
+        return mBalanceService.orderNewSearch(accessToken);
+    }
+
+    /**
+     * IPP3OrderPassage/SP_Master_Passage_Group_List
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<CommonReportResp> commonReport(CommonReportReq accessToken) {
+        return mBalanceService.commonReport(accessToken);
+    }
+
+    /**
+     * IPP3OrderPassage/IPP3Order_Master_Passage_Fund_ShopUser
+     *
+     * @param accessToken
+     * @return
+     */
+    public Observable<CusUserAllcoateResp> cusUserAllcoate(CusUserAllcoateReq accessToken) {
+        return mBalanceService.cusUserAllcoate(accessToken);
+    }
 }

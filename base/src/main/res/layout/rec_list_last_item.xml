@@ -3,8 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <View
+        android:id="@+id/diver"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_1dp"
+        android:background="@color/divide_gray_color" />
     <RelativeLayout
         android:id="@+id/rel_list_item_area"
+        android:layout_below="@+id/diver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -45,7 +51,7 @@
             android:layout_alignEnd="@+id/text_order_date"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="@dimen/margin_10dp"
-            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_15dp"
             android:layout_marginTop="@dimen/margin_10dp"
             android:layout_toEndOf="@id/text_order_money"
             android:gravity="end"
@@ -60,7 +66,7 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/text_order_code"
             android:layout_marginBottom="@dimen/margin_10dp"
-            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_15dp"
             android:layout_marginTop="@dimen/margin_5dp"
             android:text="2016-07-18 15:06:33"
             android:textColor="@color/grey_error"

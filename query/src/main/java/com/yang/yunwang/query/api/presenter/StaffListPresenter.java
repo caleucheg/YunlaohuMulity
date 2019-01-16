@@ -108,6 +108,7 @@ public class StaffListPresenter implements StaffListContract.Presenter {
                     } else if (isRefresh) {
                         bean = value;
                         view.setAdapter(bean,inner_flag);
+                        total_count = value.getTotalCount();
                         view.refreshComplete();
                         view.dataNotifyChanged();
                     } else {

@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_color">
+    android:background="@color/grey_color_back_ground">
 
     <RelativeLayout
         android:id="@+id/rel_order_search_header"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/black_color"
+        android:visibility="gone"
         android:clickable="false">
 
         <TextView
@@ -125,7 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linear_notify_area"
-                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_color_back_ground"
                     android:paddingLeft="@dimen/margin_5dp"
                     android:paddingRight="@dimen/margin_5dp"
                     android:overScrollMode="never" />

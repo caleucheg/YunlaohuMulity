@@ -193,7 +193,7 @@ public class StaffInfoActivity extends BaseActivity implements StaffInfoContract
                     break;
                 case "1":
                     MyBundle intent_orders = new MyBundle();//this, OrdersSearchActivity.class
-                    intent_orders.put("staff_id", edit_staff_info_id.getText().toString());
+                    intent_orders.put("order_search_customer", edit_staff_info_customer.getText().toString());
 //                    this.startActivity(intent_orders);
                     OrdersIntent.orderSearch(intent_orders);
                     break;

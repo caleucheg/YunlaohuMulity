@@ -1,10 +1,9 @@
 package com.yang.yunwang.base.ret;
 
 import android.content.Context;
-import android.widget.Toast;
 
-import com.yang.yunwang.base.util.NetStateUtils;
 import com.socks.library.KLog;
+import com.yang.yunwang.base.util.NetStateUtils;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -27,7 +26,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
 //        KLog.i("tag", "BaseObserver.onStart()");
         //接下来可以检查网络连接等操作
         if (!NetStateUtils.isNetworkConnected(mContext)) {
-            Toast.makeText(mContext, "当前网络不可用，请检查网络情况", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(mContext, "网络连接异常，请检查您的手机网络", Toast.LENGTH_SHORT).show();
             // 取消本次Subscriber订阅
             if (!d.isDisposed()) {
                 d.dispose();
@@ -61,6 +60,16 @@ public abstract class BaseObserver<T> implements Observer<T> {
     }
 
     public abstract void onError(ExceptionHandle.ResponeThrowable responeThrowable);
+
+//    public void onErrorTry(ExceptionHandle.ResponeThrowable responeThrowable){
+//        try {
+//            KLog.i(responeThrowable.message);
+//            onError(responeThrowable);
+//        }catch (Exception e){
+//            KLog.i(responeThrowable.message);
+//            onError(responeThrowable);
+//        }
+//    }
 
     @Override
     public void onComplete() {

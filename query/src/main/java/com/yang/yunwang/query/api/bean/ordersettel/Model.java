@@ -20,6 +20,8 @@ public class Model {
     private Long mCount;
     @SerializedName("CustomerName")
     private String mCustomerName;
+    @SerializedName("Customer")
+    private String mCustomer;
     @SerializedName("CustomerSysNo")
     private Object mCustomerSysNo;
     @SerializedName("CustomersTopSysNo")
@@ -367,4 +369,11 @@ public class Model {
         mYwMchId = ywMchId;
     }
 
+    public String getCustomer() {
+        return mCustomer;
+    }
+
+    public void setCustomer(String mCustomer) {
+        this.mCustomer = mCustomer;
+    }
 }

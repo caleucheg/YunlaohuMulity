@@ -6,6 +6,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.yang.yunwang.base.BaseApplication;
 import com.yang.yunwang.base.moduleinterface.config.ModuleOptions;
+import com.yang.yunwang.base.moduleinterface.module.home.HomeIntent;
 import com.yang.yunwang.base.moduleinterface.provider.IHomeProvider;
 import com.yang.yunwang.base.moduleinterface.provider.IOrdersProvider;
 import com.yang.yunwang.base.moduleinterface.provider.IPayProvider;
@@ -23,7 +24,7 @@ public class CommonApp extends BaseApplication {
 
     @Override
     public void jumpLogin() {
-
+        HomeIntent.login();
     }
 
     @Override

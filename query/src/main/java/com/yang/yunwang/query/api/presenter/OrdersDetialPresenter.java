@@ -160,6 +160,7 @@ public class OrdersDetialPresenter implements OrdersDetialContract.Presenter {
                     } else if (isRefresh) {
                         bean = value;
                         view.setAdapter(bean);
+                        total_count = value.getTotalCount();
                         view.refreshComplete();
                         view.dataNotifyChanged();
                     } else {

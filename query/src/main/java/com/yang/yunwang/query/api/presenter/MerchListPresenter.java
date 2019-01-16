@@ -126,6 +126,7 @@ public class MerchListPresenter implements MerchListContract.Presenter {
                         progressDialog.dismiss();
                     } else if (isRefresh) {
                         bean = value;
+                        total_count = value.getTotalCount();
                         view.setAdapter(bean);
                         view.refreshComplete();
                         view.dataNotifyChanged();

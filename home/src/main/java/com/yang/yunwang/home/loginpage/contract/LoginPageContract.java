@@ -15,7 +15,7 @@ public interface LoginPageContract {
 
         void loginOnSuccess();
 
-        void loginOnError();
+        void loginOnError(boolean isOutTime);
 
         void loginOnNetworkTimeLong();
 

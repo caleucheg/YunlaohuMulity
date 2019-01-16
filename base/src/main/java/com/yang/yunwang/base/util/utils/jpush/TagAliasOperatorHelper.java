@@ -246,7 +246,7 @@ public class TagAliasOperatorHelper {
                 String newType = CommonShare.getTypeData(context);
                 if (TextUtils.equals("3", newType) && !isShow) {
                     isShow = true;
-                    ExampleUtil.showToast("初始化推送失败,推送可能延迟", context);
+//                    ExampleUtil.showToast("初始化推送失败,推送可能延迟", context);
                 }
             }
         }

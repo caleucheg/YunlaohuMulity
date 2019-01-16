@@ -5,8 +5,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,7 @@ import com.yang.yunwang.base.ui.SlidingTabLayout;
 import com.yang.yunwang.base.ui.WrapContentHeightViewPager;
 import com.yang.yunwang.base.util.CommonShare;
 import com.yang.yunwang.base.util.ConstantUtils;
+import com.yang.yunwang.base.util.NetStateUtils;
 import com.yang.yunwang.base.view.adapter.LoginViewPagerAdapter;
 import com.yang.yunwang.home.R;
 import com.yang.yunwang.home.loginpage.contract.LoginPageContract;
@@ -47,6 +50,11 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
     private CheckBox cb_remember_p;
     private boolean isRem;
     private int pos;
+    private String password;
+    private String user;
+
+    private AppCompatCheckBox cb_remember_p1;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,8 +77,19 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
         tabLayout = (SlidingTabLayout) findViewById(R.id.tab_login);
         viewPager = (WrapContentHeightViewPager) findViewById(R.id.viewpager_login);
         btn_login = (Button) findViewById(R.id.btn_login);
-        cb_remember_p = (CheckBox) findViewById(R.id.cb_remember_p);
+        cb_remember_p = (AppCompatCheckBox) findViewById(R.id.cb_remember_p);
+        cb_remember_p1 = (AppCompatCheckBox) findViewById(R.id.cb_remember_p1);
         KLog.i(isRem + "----" + pos);
+        if (isRem && pos == 0) {
+            cb_remember_p.setChecked(true);
+            cb_remember_p.setVisibility(View.VISIBLE);
+            cb_remember_p1.setVisibility(View.GONE);
+        }
+        if (isRem && pos == 1) {
+            cb_remember_p1.setChecked(true);
+            cb_remember_p1.setVisibility(View.VISIBLE);
+            cb_remember_p.setVisibility(View.GONE);
+        }
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -80,15 +99,26 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
             @Override
             public void onPageSelected(int position) {
                 LoginActivity.this.position = position;
-                if (pos == position) {
-                    if (isRem) {
-                        cb_remember_p.setChecked(true);
-                    } else {
-                        cb_remember_p.setChecked(false);
-                    }
-                } else {
-                    cb_remember_p.setChecked(false);
+                if (position == 0) {
+                    cb_remember_p.setVisibility(View.VISIBLE);
+                    cb_remember_p1.setVisibility(View.GONE);
                 }
+                if (position == 1) {
+                    cb_remember_p1.setVisibility(View.VISIBLE);
+                    cb_remember_p.setVisibility(View.GONE);
+                }
+//                if (pos == position) {
+//                    if (isRem) {
+//                        cb_remember_p.setChecked(true);
+//                    } else {
+//                        cb_remember_p.setChecked(false);
+//
+//                    }
+//                } else {
+//                        cb_remember_p.setChecked(false);
+//
+//
+//                }
             }
 
             @Override
@@ -113,12 +143,8 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
         datas.add("员工");
         tabLayout.setData(datas);
         tabLayout.setVisibleTabCount(2);
-        if (isRem) {
-            if (pos == 0 || pos == 1) {
-                tabLayout.setViewPager(viewPager, pos);
-            } else {
-                tabLayout.setViewPager(viewPager, 0);
-            }
+        if (pos == 0 || pos == 1) {
+            tabLayout.setViewPager(viewPager, pos);
         } else {
             tabLayout.setViewPager(viewPager, 0);
         }
@@ -133,6 +159,18 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
     @Override
     protected void onResume() {
         super.onResume();
+        long lastLoginTime = CommonShare.getLastLoginTime(this);
+        long nowTime = System.currentTimeMillis();
+        int days = (int) ((nowTime - lastLoginTime) / (1000 * 60 * 60 * 24));
+        KLog.i(days);
+        if (days > 6) {
+            CommonShare.clearLogin(this);
+            viewPager.setCurrentItem(0);
+            cb_remember_p.setChecked(false);
+            cb_remember_p1.setChecked(false);
+            isRem = false;
+
+        }
         KLog.i(6 + "pspssssssssssss");
     }
 
@@ -214,26 +252,46 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.btn_login) {
-            Object[] data = loginViewPagerAdapter.getData(position);
-            String user = data[0].toString();
-            String password = data[1].toString();
-            KLog.i(user + "____" + password);
-            if (user.equals("")) {
-                Toast.makeText(this, "请输入用户名！", Toast.LENGTH_SHORT).show();
-            } else if (password.equals("")) {
-                Toast.makeText(this, "请输入密码！", Toast.LENGTH_SHORT).show();
-            } else if (!user.equals("") && !password.equals("") && position != -1) {
-                boolean checked = cb_remember_p.isChecked();
-                CommonShare.putBooleanRememberPwd(LoginActivity.this, checked);
-                KLog.i(checked + "cccccccccccccccccccc");
-                CommonShare.putRememberPos(LoginActivity.this, position);
-                if (checked) {
-                    CommonShare.putRememberName(LoginActivity.this, user);
-                    CommonShare.putRememberPwd(LoginActivity.this, password);
+            if (NetStateUtils.isNetworkConnected(LoginActivity.this)) {
+                Object[] data = loginViewPagerAdapter.getData(position);
+                String user = data[0].toString();
+                String password = data[1].toString();
+                KLog.i(user + "____" + password);
+                if (user.equals("")) {
+                    Toast.makeText(this, "请输入用户名！", Toast.LENGTH_SHORT).show();
+                } else if (password.equals("")) {
+                    Toast.makeText(this, "请输入密码！", Toast.LENGTH_SHORT).show();
+                } else if (!user.equals("") && !password.equals("") && position != -1) {
+                    LoginActivity.this.password = password;
+                    LoginActivity.this.user = user;
+//                    if (checked) {
+////                        CommonShare.putRememberPwd(LoginActivity.this, password);
+//                    }
+                    if (NetStateUtils.isNetworkConnected(LoginActivity.this)) {
+                        loginPresenter.login(user, password, position);
+                    } else {
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
+                        dialog.setMessage("网络连接异常，请检查您的手机网络");
+                        dialog.setPositiveButton(LoginActivity.this.getResources().getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        dialog.show();
+                    }
                 }
-                loginPresenter.login(user, password, position);
+            } else {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(LoginActivity.this);
+                dialog.setMessage("网络连接异常，请检查您的手机网络");
+                dialog.setPositiveButton(LoginActivity.this.getResources().getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
-
         }
     }
 
@@ -244,16 +302,48 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
 
     @Override
     public void loginOnSuccess() {
+
+        boolean checked;
+        if (position == 0) {
+            checked = cb_remember_p.isChecked();
+        } else if (position == 1) {
+            checked = cb_remember_p1.isChecked();
+        } else {
+            checked = false;
+        }
+        CommonShare.putBooleanRememberPwd(LoginActivity.this, checked);
+        CommonShare.putLastLoginTime(this, System.currentTimeMillis());
+
+        CommonShare.putRememberPos(LoginActivity.this, position);
+        CommonShare.putRememberName(LoginActivity.this, user);
+        if (checked) {
+            CommonShare.putRememberPwd(LoginActivity.this, password);
+        }
         ConstantUtils.IS_ATFER_LOGIN_INIT = true;
 //        Intent intent = new Intent(this, MainHomeActivity.class);
 //        this.startActivity(intent);
-        HomeIntent.launchHomePage();
-        this.finish();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dismissDialog();
+                HomeIntent.launchHomePage();
+                LoginActivity.this.finish();
+            }
+        }, 800);
+
     }
 
     @Override
-    public void loginOnError() {
-        showDialog(this.getResources().getString(R.string.alert_login_error));
+    public void loginOnError(boolean isOutTime) {
+        String string;
+        if (isOutTime) {
+            string = this.getResources().getString(R.string.alert_login_time_long);
+        } else {
+            string = this.getResources().getString(R.string.alert_login_error);
+        }
+        showDialog(string);
     }
 
     @Override
@@ -293,6 +383,7 @@ public class LoginActivity extends Activity implements LoginPageContract.View, V
             dialog.setPositiveButton(this.getResources().getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    LoginActivity.this.finish();
                     System.exit(0);
                 }
             });

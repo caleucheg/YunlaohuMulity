@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.socks.library.KLog;
+import com.yang.yunwang.base.moduleinterface.provider.IHomeProvider;
 import com.yang.yunwang.base.moduleinterface.provider.IOrdersProvider;
 import com.yang.yunwang.base.util.ConstantUtils;
 import com.yang.yunwang.home.R;
@@ -132,13 +133,13 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
         }
         List<String> actions = new ArrayList<>();
         actions.add(IOrdersProvider.ORDERS_ACT_STAFF_SEARCH);
-        actions.add(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH);
+        actions.add(IHomeProvider.HOME_ACT_CUS_USER_AL_LIST);
         actions.add(IOrdersProvider.ORDERS_ACT_STAFF_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_STAFF_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_COMMON_REFUND_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_ORDER_DETIALS_SEARCH);
-        actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
+//        actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_ORDER_DETIALS_SEARCH);
 
         Bundle staffSearchBundle = new Bundle();
@@ -170,9 +171,9 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
         Bundle refundPrintBundle = new Bundle();
         refundPrintBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
-        Bundle dayCollectBundle = new Bundle();
-        dayCollectBundle.putBoolean(ConstantUtils.DAY_COLLECT, true);
-        dayCollectBundle.putBoolean(ConstantUtils.CLICKABLE, true);
+//        Bundle dayCollectBundle = new Bundle();
+//        dayCollectBundle.putBoolean(ConstantUtils.DAY_COLLECT, true);
+//        dayCollectBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
         Bundle staticsBundle = new Bundle();
         staticsBundle.putBoolean("FROM_MER_HOME", true);
@@ -185,7 +186,7 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
                 rateBundle,
                 refundBundle,
                 refundPrintBundle,
-                dayCollectBundle,
+//                dayCollectBundle,
                 staticsBundle
         };
 
@@ -200,55 +201,55 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
 //        Intent intentRefundPrint = new Intent(context, RefundPrintSearchActivity.class);
 //        Intent intentDayCollect = new Intent(context, CommonSearchActivity.class);
 
-        int day_collect = R.drawable.day_collect;
-        if (!ConstantUtils.IPP3OrderByDayList) {
-            day_collect = R.drawable.day_collect_grey;
-            dayCollectBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-//            intentDayCollect.putExtra(ConstantUtils.ACTIVEBTN, false);
-        }
-        int order_print = R.drawable.print_order;
+//        int day_collect = R.drawable.day_collect;
+//        if (!ConstantUtils.IPP3OrderByDayList) {
+//            day_collect = R.drawable.day_collect_grey;
+//            dayCollectBundle.putBoolean(ConstantUtils.CLICKABLE, false);
+////            intentDayCollect.putExtra(ConstantUtils.ACTIVEBTN, false);
+//        }
+        int order_print = R.drawable.new_order_detial;
         if (!ConstantUtils.Order_statistics) {
-            order_print = R.drawable.print_order_grey;
+            order_print = R.drawable.new_order_detial_grey;
             refundPrintBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 //            intentRefundPrint.putExtra(ConstantUtils.ACTIVEBTN, false);
         }
         int staff_normal = R.drawable.staff_normal;
-        int order_normal = R.drawable.order_normal;
-        int merchant_qr_normal = R.drawable.merchant_qr_normal;
-        int statics_normal = R.drawable.refund_search_icon_m;
-        int statics_select = R.drawable.refund_search_icon_m;
+        int order_normal = R.drawable.staff_day_col;
+        int merchant_qr_normal = R.drawable.new_persnoal_qr;
+        int statics_normal = R.drawable.new_unrefund_order;
+        int statics_select = R.drawable.new_unrefund_order;
         int staff_user_destribute = R.drawable.staff_user_destribute;
-        int tenants_rate1 = R.drawable.rate_order_r;
+        int tenants_rate1 = R.drawable.new_rate_order_sel;
 //        int tenants_rate2 = R.drawable.up_rate_order_r;
         int tenants_rate3 = R.drawable.refund_search_icon;
-        int staff_select = R.drawable.staff_select;
-        int order_select = R.drawable.order_select;
-        int merchant_qr_select = R.drawable.merchant_qr_select;
+        int staff_select = R.drawable.staff_normal;
+        int order_select = R.drawable.staff_day_col;
+        int merchant_qr_select = R.drawable.new_persnoal_qr;
         if (!ConstantUtils.Staff_staff_list) {
-            staff_normal = R.drawable.staff_normal_grey;
-            staff_select = R.drawable.staff_normal_grey;
+            staff_normal = R.drawable.staff_normal;
+            staff_select = R.drawable.staff_normal;
             staffSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 //            intent_staff.putExtra(ConstantUtils.ACTIVEBTN, false);
         }
-        if (!ConstantUtils.Order_order_search) {
-            order_normal = R.drawable.order_normal_grey;
-            order_select = R.drawable.order_normal_grey;
-//            intent_order.putExtra(ConstantUtils.ACTIVEBTN, false);
-            orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
+//        if (!ConstantUtils.Order_order_search) {
+//            order_normal = R.drawable.staff_day_col_grey;
+//            order_select = R.drawable.staff_day_col_grey;
+////            intent_order.putExtra(ConstantUtils.ACTIVEBTN, false);
+//            orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 
-        }
+//        }
         if (!ConstantUtils.Permission_permission_assignment) {
             staff_user_destribute = R.drawable.staff_user_destribute_grey;
 //            intent_user_dis.putExtra(ConstantUtils.ACTIVEBTN, false);
             userDisBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
         if (!ConstantUtils.OrderFund_orderfund) {
-            tenants_rate1 = R.drawable.rate_order__r_grey;
+            tenants_rate1 = R.drawable.new_rate_order_sel_grey;
 //            intent_rate.putExtra(ConstantUtils.ACTIVEBTN, false);
             rateBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
         if (!ConstantUtils.RefundSearch_refund_search) {
-            tenants_rate3 = R.drawable.refund_search_icon_grey;
+            tenants_rate3 = R.drawable.refund_search_icon_grey_base;
 //            intentRefund.putExtra(ConstantUtils.ACTIVEBTN, false);
             refundBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
@@ -258,24 +259,24 @@ public class MerchantHomeModel implements MerchantHomeModelInterface {
         if (!ConstantUtils.IPP3OrderFundList_Shop_SP) {
 //            intent_statics.putExtra(ConstantUtils.ACTIVEBTN, false);
             staticsBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-            statics_normal = R.drawable.refund_search_icon_m_grey;
-            statics_select = R.drawable.refund_search_icon_m_grey;
+            statics_normal = R.drawable.new_unrefund_order_grey;
+            statics_select = R.drawable.new_unrefund_order_grey;
 
         }
         if (!ConstantUtils.Qrcode_index) {
 //            intent_merchant_qr.putExtra(ConstantUtils.ACTIVEBTN, false);
             merchQRBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-            merchant_qr_normal = R.drawable.merchant_qr_normal_grey;
-            merchant_qr_select = R.drawable.merchant_qr_normal_grey;
+            merchant_qr_normal = R.drawable.new_persnoal_qr_grey;
+            merchant_qr_select = R.drawable.new_persnoal_qr_grey;
         }
         int[] reses = new int[]{
                 staff_normal, order_normal,
                 merchant_qr_normal,
-                staff_user_destribute, tenants_rate1, tenants_rate3, order_print, day_collect, statics_normal};
+                staff_user_destribute, tenants_rate1, tenants_rate3, order_print, statics_normal};
         int[] reses_select = new int[]{
                 staff_select, order_select,
                 merchant_qr_select,
-                staff_user_destribute, tenants_rate1, tenants_rate3, order_print, day_collect, statics_select};
+                staff_user_destribute, tenants_rate1, tenants_rate3, order_print, statics_select};
 
 
 //        intent_rateUP.putExtra(ConstantUtils.fromMerchHome, true);

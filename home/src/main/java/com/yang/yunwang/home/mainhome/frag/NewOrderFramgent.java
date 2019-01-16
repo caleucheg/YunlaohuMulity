@@ -20,15 +20,12 @@ import android.widget.Toast;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.socks.library.KLog;
-import com.yang.yunwang.base.moduleinterface.module.home.HomeIntent;
-import com.yang.yunwang.base.moduleinterface.provider.IOrdersProvider;
 import com.yang.yunwang.base.util.NetStateUtils;
 import com.yang.yunwang.home.R;
 import com.yang.yunwang.home.mainhome.bean.ordersearch.OrderSearchRespNew;
 import com.yang.yunwang.home.mainhome.contract.NewOrderListContract;
 import com.yang.yunwang.home.mainhome.presenter.NewOrderListPresenter;
 import com.yang.yunwang.home.mainhome.view.adapter.CommonHomeListRecAdapter;
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 public class NewOrderFramgent extends Fragment implements NewOrderListContract.View<OrderSearchRespNew>, View.OnClickListener {
     NewOrderListContract.Presenter ordersSearchPresenter;
@@ -46,12 +43,13 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_orderslist_new, null);
+        View view = inflater.inflate(R.layout.layout_orderslist_new, container, false);
         this.view = view;
-        new NewOrderListPresenter(this.getContext(), this);
-        onHomePageChange();
+        new NewOrderListPresenter(this.getActivity(), this);
+//        onHomePageChange();
         init();
         initListener();
+//        ordersSearchPresenter.initData();
         return view;
 
     }
@@ -67,6 +65,7 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
                 int pos = intent.getIntExtra("position", -1);
                 KLog.i(pos);
                 if (pos == 1) {
+                    KLog.i("page-change");
                     ordersSearchPresenter.initData();
                 }
             }
@@ -82,6 +81,13 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
         rec_order_list.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         rec_order_list.setLoadingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
         tv_filter = (TextView) view.findViewById(R.id.tv_filter);
+        TextView text_shop_info_title = (TextView) view.findViewById(R.id.text_shop_info_title);
+        text_shop_info_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ordersSearchPresenter.loadMoreN();
+            }
+        });
     }
 
     private void initListener() {
@@ -117,7 +123,8 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
             @Override
             public void onClick(View v) {
                 //Todo jump filter
-                HomeIntent.orderFilter();
+//                HomeIntent.orderFilter();
+                ordersSearchPresenter.initData();
             }
         });
     }
@@ -156,8 +163,14 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
     }
 
     @Override
-    public void loadMoreComplete() {
-        rec_order_list.loadMoreComplete();
+    public void loadMoreComplete(boolean hasMore) {
+        KLog.i("data l");
+        rec_order_list.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                rec_order_list.loadMoreComplete();
+            }
+        }, 1000);
     }
 
     @Override
@@ -167,22 +180,30 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
 
     @Override
     public void dataNotifyChanged() {
-        commonListRecAdapter.notifyDataSetChanged();
+        KLog.i("data c");
+        rec_order_list.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                commonListRecAdapter.notifyDataSetChanged();
+            }
+        }, 1000);
+
     }
 
     @Override
     public void setAdapter(OrderSearchRespNew bean) {
-        commonListRecAdapter = new CommonHomeListRecAdapter(this.getContext(), bean, IOrdersProvider.ORDERS_ACT_ORDER_SEARCH, R.layout.rec_list_item);
+        KLog.i("set a");
+//        commonListRecAdapter = new CommonHomeListRecAdapter(this.getContext(), bean, IHomeProvider.NEW_ORDER, R.layout.new_rec_order_item);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         commonListRecAdapter.setHasStableIds(true);
-        rec_order_list.setItemViewCacheSize(5000);
+        rec_order_list.setItemViewCacheSize(100);
         rec_order_list.setLayoutManager(linearLayoutManager);
         rec_order_list.setAdapter(commonListRecAdapter);
-        rec_order_list.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this.getActivity().getApplicationContext())
-                .color(this.getResources().getColor(R.color.divide_gray_color))
-                .size(getResources().getDimensionPixelSize(R.dimen.divider_1dp))
-                .build());
+//        rec_order_list.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this.getActivity().getApplicationContext())
+//                .color(this.getResources().getColor(R.color.divide_gray_color))
+//                .size(getResources().getDimensionPixelSize(R.dimen.divider_1dp))
+//                .build());
         commonListRecAdapter.notifyDataSetChanged();
     }
 
@@ -193,6 +214,21 @@ public class NewOrderFramgent extends Fragment implements NewOrderListContract.V
         } else {
             view.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void showDialog() {
+
+    }
+
+    @Override
+    public void dismissDialog() {
+
+    }
+
+    @Override
+    public void dismissLoadMore() {
+
     }
 
     @Override

@@ -87,6 +87,16 @@ public class MerchantHomeFragment extends Fragment implements MerchHomeContract.
     }
 
     @Override
+    public void setHomeInfo(String cusType, String cashFee, String tradeCount, String orderFee) {
+
+    }
+
+    @Override
+    public void setHomeActiveCus(String activeCus) {
+
+    }
+
+    @Override
     public void setPresenter(MerchHomeContract.Presenter presenter) {
         this.presnter = presenter;
     }

@@ -1,6 +1,7 @@
 package com.yang.yunwang.home.mainhome.presenter;
 
 import android.Manifest;
+import android.app.LocalActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
@@ -54,20 +55,22 @@ public class MainhomePresenter implements MainhomeContract.Presenter {
     private final MainhomeContract.View view;
     private final Context context;
     private final String customer_type;
+    private final LocalActivityManager manager;
     private StaffModelInterface staffModel;
     private MerchantModelInterface merchantModel;
 
-    public MainhomePresenter(MainhomeContract.View view, Context context) {
+    public MainhomePresenter(MainhomeContract.View view, Context context, LocalActivityManager manager) {
         view.setPresenter(this);
         this.view = view;
         this.context = context;
+        this.manager = manager;
         customer_type = ConstantUtils.CUSTOMERS_TYPE;
         if (customer_type != null && !customer_type.equals("")) {
 //            服务商与商户角色
-            merchantModel = new MerchantModel(context);
+            merchantModel = new MerchantModel(context, manager);
         } else {
 //            员工角色
-            staffModel = new StaffModel(context);
+            staffModel = new StaffModel(context, manager);
         }
     }
 
@@ -369,10 +372,13 @@ public class MainhomePresenter implements MainhomeContract.Presenter {
 
                             @Override
                             public void onError(ExceptionHandle.ResponeThrowable responeThrowable) {
-
-                                Toast.makeText(context, "权限获取失败,请重新登录", Toast.LENGTH_SHORT).show();
-
-                                view.dismissDialog();
+                                try {
+                                    Toast.makeText(context, "权限获取失败,请重新登录", Toast.LENGTH_SHORT).show();
+                                    initAllocateError();
+                                    view.dismissDialog();
+                                } catch (Exception e) {
+                                    KLog.i(e);
+                                }
                             }
                         });
             } else {
@@ -407,10 +413,14 @@ public class MainhomePresenter implements MainhomeContract.Presenter {
 
                             @Override
                             public void onError(ExceptionHandle.ResponeThrowable responeThrowable) {
+                                try {
+                                    Toast.makeText(context, "权限获取失败,请重新登录", Toast.LENGTH_SHORT).show();
+                                    view.dismissDialog();
+                                    initAllocateError();
+                                } catch (Exception e) {
+                                    KLog.i(e);
+                                }
 
-                                Toast.makeText(context, "权限获取失败,请重新登录", Toast.LENGTH_SHORT).show();
-                                view.dismissDialog();
-                                initAllocateError();
 
                             }
                         });

@@ -18,7 +18,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.socks.library.KLog;
 import com.yang.yunwang.base.R;
 
 import java.util.List;
@@ -121,7 +120,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         canvas.save();
         // 平移到正确的位置
         canvas.translate(mInitTranslationX + mTranslationX, this.mInitTranslationY);//修正tabs的平移量
-        KLog.i(getWidth());
+//        KLog.i(getWidth());
         canvas.drawBitmap(this.mSlideIcon, 0, 0, null);
         canvas.restore();
         super.dispatchDraw(canvas);

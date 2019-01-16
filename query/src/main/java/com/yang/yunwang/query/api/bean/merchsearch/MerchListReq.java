@@ -14,7 +14,16 @@ public class MerchListReq {
     private String mCustomersTopSysNo;
     @SerializedName("PagingInfo")
     private PagingInfo mPagingInfo;
+    @SerializedName("SortingInfo")
+    private SortingInfo mSortingInfo;
 
+    public SortingInfo getSortingInfo() {
+        return mSortingInfo;
+    }
+
+    public void setSortingInfo(SortingInfo sortingInfo) {
+        mSortingInfo = sortingInfo;
+    }
 
     public String getSystemUserSysNo() {
         return systemUserSysNo;

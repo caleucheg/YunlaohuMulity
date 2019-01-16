@@ -16,6 +16,7 @@ public interface IOrdersProvider extends IBaseProvider {
     String ORDERS_ACT_ORDER_LIST = "/orders/act/orderlist";
     String ORDERS_ACT_ORDER_SETTLE= "/orders/act/ordersettle";
     String ORDERS_ACT_ORDER_LIST_INFO = "/orders/act/orderinfo";
+    String ORDERS_ACT_NEW_ORDER_LIST_INFO = "/orders/act/new/orderinfo";
     String ORDERS_ACT_WX_PLANT = "/orders/act/wx/plant";
     String ORDERS_ACT_ZFB_PLANT_SEARCH = "/orders/act/zfb/plant";
     String ORDERS_ACT_ORDER_SETTLE_INFO = "/orders/act/ordersettle/info";
@@ -49,4 +50,7 @@ public interface IOrdersProvider extends IBaseProvider {
     String ORDERS_ACT_SSTAFF_COLLECT_LIST = "/orders/act/sstaff/collect/list";
     String ORDERS_ACT_SSTAFF_COLLECT_SEARCH = "/orders/act/sstaff/collect/search";
     String ORDERS_ACT_SSTAFF_COLLECT_INFO = "/orders/act/sstaff/collect/info";
+    String ORDERS_ACT_COMMON_CARD_CUS_LIST = "/orders/act/common/card/cus/list";
+    String ORDERS_ACT_COMMON_CARD_STAFF_LIST = "/orders/act/common/card/staff/list";
+    String ORDERS_ACT_COMMON_CARD_ACTICVE_LIST = "/orders/act/common/card/active/list";
 }

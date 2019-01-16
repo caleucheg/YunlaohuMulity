@@ -2,95 +2,114 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/login_back_color">
-    <RelativeLayout
-        android:id="@+id/rel_order_search_header"
+    android:background="@color/grey_color_back_ground">
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/pull_refresh_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/black_color"
-        android:clickable="false">
-
-        <TextView
-            android:id="@+id/text_order_search_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="翼惠支付"
-            android:textColor="@color/white_color"
-            android:textSize="15sp" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
+        android:layout_height="match_parent"
         android:layout_below="@+id/rel_order_search_header"
-        android:id="@+id/rel_staff_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/staff_home_header">
+        ptr:ptrAnimationStyle="flip">
 
-
-        <ImageView
-            android:id="@+id/image_staff_portrait"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_20dp"
-            android:background="@drawable/image_circle"
-            android:scaleType="centerInside"
-            android:src="@drawable/portrait_man" />
-
-        <TextView
-            android:id="@+id/text_staff_customer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/image_staff_portrait"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_5dp"
-            android:text=""
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/text_size_20sp" />
-
-        <TextView
-            android:id="@+id/text_staff_top_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_staff_customer"
-            android:layout_centerHorizontal="true"
-            android:textColor="@color/white_color"
-            android:textSize="@dimen/text_size_14sp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/linear_staff_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_staff_header"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:background="@color/white_color"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_staff_main"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never" />
-    </LinearLayout>
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/linear_staff_sub"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_staff_main"
-        android:layout_marginTop="@dimen/margin_10dp"
-        android:background="@color/white_color"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycle_staff_sub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never" />
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
+                <RelativeLayout
+                    android:id="@+id/rel_staff_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel_order_search_header"
+                    android:background="@drawable/staff_home_header"
+                    android:visibility="gone">
+
+
+                    <ImageView
+                        android:id="@+id/image_staff_portrait"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_20dp"
+                        android:background="@drawable/image_circle"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/portrait_man" />
+
+                    <TextView
+                        android:id="@+id/text_staff_customer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image_staff_portrait"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/margin_5dp"
+                        android:text=""
+                        android:textColor="@color/white_color"
+                        android:textSize="@dimen/text_size_20sp" />
+
+                    <TextView
+                        android:id="@+id/text_staff_top_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/text_staff_customer"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/white_color"
+                        android:textSize="@dimen/text_size_14sp" />
+                </RelativeLayout>
+
+                <include
+                    android:id="@+id/rel_header"
+                    layout="@layout/home_page_top" />
+
+                <LinearLayout
+                    android:id="@+id/linear_staff_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel_header"
+                    android:background="@color/white_color"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycle_staff_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:overScrollMode="never"
+                        android:paddingLeft="3dp"
+                        android:paddingTop="2dp"
+                        android:paddingRight="3dp"
+                        android:paddingBottom="2dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_1dp"
+                    android:layout_below="@id/linear_staff_main"
+                    android:background="@color/grey_color_line" />
+
+                <LinearLayout
+                    android:id="@+id/linear_staff_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/linear_staff_main"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/grey_color_back_ground"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycle_staff_sub"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/grey_color_back_ground"
+                        android:overScrollMode="never"
+                        android:paddingLeft="@dimen/margin_5dp"
+                        android:paddingRight="@dimen/margin_5dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 </RelativeLayout>

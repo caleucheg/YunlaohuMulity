@@ -41,12 +41,12 @@ public class StaffHomeModel implements StaffHomeContract.Model {
     @Override
     public void initServiceMainFunctionList() {
         String[] lists = context.getResources().getStringArray(R.array.merchant_main_function_list);
-        int staff_search_unselect = R.drawable.staff_search_unselect;
-        int staff_search_selected = R.drawable.staff_search_selected;
-        int merchant_search_unselect = R.drawable.merchant_search_unselect;
-        int merchant_search_selected = R.drawable.merchant_search_selected;
+        int staff_search_unselect = R.drawable.new_rate_order;
+        int staff_search_selected = R.drawable.new_rate_order;
+        int merchant_search_unselect = R.drawable.cus_search;
+        int merchant_search_selected = R.drawable.cus_search;
         List<String> actions = new ArrayList<>();
-        actions.add(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH);
+        actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_MERCH_SEARCH);
 
 
@@ -55,6 +55,9 @@ public class StaffHomeModel implements StaffHomeContract.Model {
         staffSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
         Bundle orderSearchBundle = new Bundle();
+        orderSearchBundle.putBoolean("from_home", true);
+        orderSearchBundle.putString("rate_type", "shopRate");
+        orderSearchBundle.putBoolean(ConstantUtils.merchStaff, true);
         orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
         Bundle[] bundles = new Bundle[]{
                 orderSearchBundle,
@@ -66,15 +69,15 @@ public class StaffHomeModel implements StaffHomeContract.Model {
 //        intent_orders.putExtra(ConstantUtils.ACTIVEBTN, true);
 //        Intent intent_merchant_search = new Intent(context, MerchantSearchActivity.class);
 //        intent_merchant_search.putExtra(ConstantUtils.ACTIVEBTN, true);
-        if (!ConstantUtils.Order_order_search) {
-            staff_search_selected = R.drawable.staff_search_unselect_grey;
-            staff_search_unselect = R.drawable.staff_search_unselect_grey;
+        if (!ConstantUtils.OrderFund_orderfund) {
+            staff_search_selected = R.drawable.new_rate_order_grey;
+            staff_search_unselect = R.drawable.new_rate_order_grey;
 //            intent_orders.putExtra(ConstantUtils.ACTIVEBTN, false);
             orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
         if (!ConstantUtils.Business_business) {
-            merchant_search_unselect = R.drawable.merchant_search_unselect_grey;
-            merchant_search_selected = R.drawable.merchant_search_unselect_grey;
+            merchant_search_unselect = R.drawable.cus_search_grey;
+            merchant_search_selected = R.drawable.cus_search_grey;
 //            intent_merchant_search.putExtra(ConstantUtils.ACTIVEBTN, false);
             staffSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
@@ -160,49 +163,48 @@ public class StaffHomeModel implements StaffHomeContract.Model {
         List<String> actions = new ArrayList<>();
         actions.add(IPayProvider.PAY_ACT_SCAN_CODE);
         actions.add(IPayProvider.PAY_ACT_QR_CODE);
-        actions.add(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH);
+//        actions.add(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH);
         Bundle scanCodeBundle = new Bundle();
         scanCodeBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
         Bundle qrCodeBundle = new Bundle();
         qrCodeBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
-        Bundle orderSearchBundle = new Bundle();
-        orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
+//        Bundle orderSearchBundle = new Bundle();
+//        orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
         Bundle[] bundles = new Bundle[]{
                 scanCodeBundle,
-                qrCodeBundle,
-                orderSearchBundle
+                qrCodeBundle
 
 
         };
 
 
-        int staff_scan_unselect = R.drawable.staff_scan_unselect;
-        int staff_qr_unselect = R.drawable.staff_qr_unselect;
-        int staff_search_unselect = R.drawable.staff_search_unselect;
-        int staff_scan_selected = R.drawable.staff_scan_selected;
-        int staff_qr_selected = R.drawable.staff_qr_selected;
-        int staff_search_selected = R.drawable.staff_search_selected;
+        int staff_scan_unselect = R.drawable.new_scan_code;
+        int staff_qr_unselect = R.drawable.new_qr_code;
+//        int staff_search_unselect = R.drawable.staff_search_unselect;
+        int staff_scan_selected = R.drawable.new_scan_code;
+        int staff_qr_selected = R.drawable.new_qr_code;
+//        int staff_search_selected = R.drawable.staff_search_selected;
         if (!ConstantUtils.Pay_scan_code_payment_Alipay && !ConstantUtils.Pay_scan_code_payment) {
-            staff_scan_unselect = R.drawable.staff_scan_unselect_grey;
-            staff_qr_unselect = R.drawable.staff_qr_unselect_grey;
-            staff_qr_selected = R.drawable.staff_qr_unselect_grey;
-            staff_scan_selected = R.drawable.staff_scan_unselect_grey;
+            staff_scan_unselect = R.drawable.new_scan_code_grey;
+            staff_qr_unselect = R.drawable.new_qr_code_grey;
+            staff_qr_selected = R.drawable.new_qr_code_grey;
+            staff_scan_selected = R.drawable.new_scan_code_grey;
 //            intent_scan.putExtra(ConstantUtils.ACTIVEBTN, false);
             scanCodeBundle.putBoolean(ConstantUtils.CLICKABLE, false);
             qrCodeBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 //            intent_qrcode.putExtra(ConstantUtils.ACTIVEBTN, false);
         }
-        if (!ConstantUtils.Order_order_search) {
-            staff_search_selected = R.drawable.staff_search_unselect_grey;
-            staff_search_unselect = R.drawable.staff_search_unselect_grey;
-            orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-//            intent_orders.putExtra(ConstantUtils.ACTIVEBTN, false);
-        }
-        int[] reses = new int[]{staff_scan_unselect, staff_qr_unselect, staff_search_unselect};
-        int[] reses_selected = new int[]{staff_scan_selected, staff_qr_selected, staff_search_selected};
+//        if (!ConstantUtils.Order_order_search) {
+//            staff_search_selected = R.drawable.staff_search_unselect_grey;
+//            staff_search_unselect = R.drawable.staff_search_unselect_grey;
+//            orderSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
+////            intent_orders.putExtra(ConstantUtils.ACTIVEBTN, false);
+//        }
+        int[] reses = new int[]{staff_scan_unselect, staff_qr_unselect};
+        int[] reses_selected = new int[]{staff_scan_selected, staff_qr_selected};
 //        Intent[] main_intents = new Intent[]{intent_scan, intent_qrcode, intent_orders};
         List<String> main_function_list = new ArrayList<String>();
         for (int i = 0; i < lists.length; i++) {
@@ -237,7 +239,7 @@ public class StaffHomeModel implements StaffHomeContract.Model {
         actions.add(IOrdersProvider.ORDERS_ACT_REFUND_SEARCH);
         //TODO switch
         actions.add(IOrdersProvider.ORDERS_ACT_PERSONAL_QR);
-        actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
+//        actions.add(IOrdersProvider.ORDERS_ACT_COMMON_SEARCH);
         actions.add(IOrdersProvider.ORDERS_ACT_ORDER_DETIALS_SEARCH);
 
         Bundle wxPlantBundle = new Bundle();
@@ -256,9 +258,9 @@ public class StaffHomeModel implements StaffHomeContract.Model {
         persnQRBundle.putString("sysNO", ConstantUtils.SYS_NO);
         persnQRBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
-        Bundle commonSearchBundle = new Bundle();
-        commonSearchBundle.putBoolean("isUserRate", true);
-        commonSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
+//        Bundle commonSearchBundle = new Bundle();
+//        commonSearchBundle.putBoolean("isUserRate", true);
+//        commonSearchBundle.putBoolean(ConstantUtils.CLICKABLE, true);
 
         Bundle refundPrintBundle = new Bundle();
         refundPrintBundle.putBoolean(ConstantUtils.PRINT_F_STAFF, true);
@@ -270,72 +272,72 @@ public class StaffHomeModel implements StaffHomeContract.Model {
                 unRefundBundle,
                 refundSearchBundle,
                 persnQRBundle,
-                commonSearchBundle,
+//                commonSearchBundle,
                 refundPrintBundle
         };
 
 //        intentRefundPrint.putExtra(ConstantUtils.PRINT_F_STAFF, true);
-        int order_print = R.drawable.staff_print;
-        int wx_orders_unselect = R.drawable.wx_orders_unselect;
-        int zfb_orders_unselect = R.drawable.zfb_orders_unselect;
-        int refunds_unselect = R.drawable.refunds_unselect;
-        int refunds_search_unselect = R.drawable.refunds_search_unselect;
-        int staff_qr_normal = R.drawable.paycode_image;
-        int rate_order = R.drawable.rate_order;
-        int wx_orders_selected = R.drawable.wx_orders_selected;
-        int zfb_orders_selected = R.drawable.zfb_orders_selected;
-        int refunds_selected = R.drawable.refunds_selected;
-        int refunds_search_selected = R.drawable.refunds_search_selected;
-        int staff_qr_select = R.drawable.paycode_image;
+        int order_print = R.drawable.new_order_detial;
+        int wx_orders_unselect = R.drawable.new_wx_order;
+        int zfb_orders_unselect = R.drawable.new_zfb_order;
+        int refunds_unselect = R.drawable.new_unrefund_order;
+        int refunds_search_unselect = R.drawable.new_refund_search;
+        int staff_qr_normal = R.drawable.new_persnoal_qr;
+//        int rate_order = R.drawable.rate_order;
+        int wx_orders_selected = R.drawable.new_wx_order;
+        int zfb_orders_selected = R.drawable.new_zfb_order;
+        int refunds_selected = R.drawable.new_unrefund_order;
+        int refunds_search_selected = R.drawable.new_refund_search;
+        int staff_qr_select = R.drawable.new_persnoal_qr;
         if (!ConstantUtils.Wxpay_native) {
-            staff_qr_normal = R.drawable.paycode_image_grey;
-            staff_qr_select = R.drawable.paycode_image_grey;
+            staff_qr_normal = R.drawable.new_persnoal_qr_grey;
+            staff_qr_select = R.drawable.new_persnoal_qr_grey;
 //            intent_statistics.putExtra(ConstantUtils.ACTIVEBTN, false);
             persnQRBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
         if (!ConstantUtils.Order_platform_order_search) {
-            wx_orders_selected = R.drawable.wx_orders_unselect_grey;
-            wx_orders_unselect = R.drawable.wx_orders_unselect_grey;
+            wx_orders_selected = R.drawable.new_wx_order_grey;
+            wx_orders_unselect = R.drawable.new_wx_order_grey;
             wxPlantBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 //            intent_wxorders.putExtra(ConstantUtils.ACTIVEBTN, false);
         }
 
         if (!ConstantUtils.Order_order_search_alipay) {
-            zfb_orders_selected = R.drawable.zfb_orders_unselect_grey;
-            zfb_orders_unselect = R.drawable.zfb_orders_unselect_grey;
+            zfb_orders_selected = R.drawable.new_zfb_order_grey;
+            zfb_orders_unselect = R.drawable.new_zfb_order_grey;
 //            intent_zfborders.putExtra(ConstantUtils.ACTIVEBTN, false);
             zfbPalntBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
         if (!ConstantUtils.Refund_refund) {
-            refunds_selected = R.drawable.refunds_unselect_grey;
-            refunds_unselect = R.drawable.refunds_unselect_grey;
+            refunds_selected = R.drawable.new_unrefund_order_grey;
+            refunds_unselect = R.drawable.new_unrefund_order_grey;
             unRefundBundle.putBoolean(ConstantUtils.CLICKABLE, false);
 //            intent_refund.putExtra(ConstantUtils.ACTIVEBTN, false);
         }
         if (!ConstantUtils.RefundSearch_refund_search) {
-            refunds_search_selected = R.drawable.refunds_search_unselect_grey;
-            refunds_search_unselect = R.drawable.refunds_search_unselect_grey;
+            refunds_search_selected = R.drawable.new_refund_search_grey;
+            refunds_search_unselect = R.drawable.new_refund_search_grey;
 //            intent_refundsearch.putExtra(ConstantUtils.ACTIVEBTN, false);
             refundSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
         }
-        if (!ConstantUtils.OrderFund_orderfund) {
-            rate_order = R.drawable.rate_order_grey;
-            commonSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-//            intent_rate.putExtra(ConstantUtils.ACTIVEBTN, false);
-        }
+//        if (!ConstantUtils.OrderFund_orderfund) {
+//            rate_order = R.drawable.rate_order_grey;
+//            commonSearchBundle.putBoolean(ConstantUtils.CLICKABLE, false);
+////            intent_rate.putExtra(ConstantUtils.ACTIVEBTN, false);
+//        }
 
 
         if (!ConstantUtils.Order_statistics) {
 //            intentRefundPrint.putExtra(ConstantUtils.ACTIVEBTN, false);
             refundPrintBundle.putBoolean(ConstantUtils.CLICKABLE, false);
-            order_print = R.drawable.staff_print_grey;
+            order_print = R.drawable.new_order_detial_grey;
         }
         int[] reses = new int[]{wx_orders_unselect, zfb_orders_unselect,
                 refunds_unselect, refunds_search_unselect,
-                staff_qr_normal, rate_order, order_print};
+                staff_qr_normal, order_print};
         int[] reses_selected = new int[]{wx_orders_selected, zfb_orders_selected,
                 refunds_selected, refunds_search_selected,
-                staff_qr_select, rate_order, order_print};
+                staff_qr_select, order_print};
 
 
         List<String> main_function_list = new ArrayList<String>();

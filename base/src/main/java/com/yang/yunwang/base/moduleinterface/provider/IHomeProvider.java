@@ -39,6 +39,12 @@ public interface IHomeProvider extends IBaseProvider {
     String HOME_ACT_SCAN_RESULT = "/home/act/scan/result";
     String HOME_ACT_REGIST = "/home/act/regist";
     String HOME_ACT_ORDER_FILTER = "/home/act/order/filter";
+    String HOME_ACT_REPORT_NAME_FILTER = "/home/act/report/name/filter";
+    String HOME_ACT_REPORT_TIME_FILTER = "/home/act/report/time/filter";
+    String NEW_ORDER = "/home/act/new/order/frag";
+    String HOME_ACT_NEW_ORDER_LIST = "/home/act/new/order/list";
+    String HOME_ACT_CUS_USER_AL_LIST = "/home/act/cus/user/al/list";
+    String HOME_ACT_CUS_USER_AL_FILTER = "/home/act/cus/user/al/filter";
 
 
     void toast(String msg);

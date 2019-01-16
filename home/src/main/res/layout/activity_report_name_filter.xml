@@ -7,6 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_40dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -75,6 +76,7 @@
                 android:gravity="left|center_vertical"
                 android:hint="商户登录名"
                 android:singleLine="true"
+                android:maxLength="25"
                 android:textColorHint="@color/label_color"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:textSize="15sp" />
@@ -111,6 +113,7 @@
                 android:gravity="left|center_vertical"
                 android:hint="商户名称"
                 android:singleLine="true"
+                android:maxLength="25"
                 android:textColorHint="@color/label_color"
                 android:textCursorDrawable="@drawable/color_cursor"
                 android:textSize="15sp" />

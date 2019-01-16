@@ -24,6 +24,8 @@ import com.yang.yunwang.query.api.bean.refundsearchs.RefundListSResp;
 import com.yang.yunwang.query.api.bean.staffsearch.StaffListResp;
 import com.yang.yunwang.query.api.bean.susersettle.list.SStaffCollectResp;
 import com.yang.yunwang.query.view.adapter.viewholder.AllocateViewHolder;
+import com.yang.yunwang.query.view.adapter.viewholder.CommonCardActiveAlListViewHolder;
+import com.yang.yunwang.query.view.adapter.viewholder.CommonCardCusListViewHolder;
 import com.yang.yunwang.query.view.adapter.viewholder.CommonDayCollectHolder;
 import com.yang.yunwang.query.view.adapter.viewholder.CommonRateViewHolder;
 import com.yang.yunwang.query.view.adapter.viewholder.CommonRefundViewHolder;
@@ -51,6 +53,9 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
     private final String COMMON_RATE_CLASS = IOrdersProvider.ORDERS_ACT_COMMON_LIST;
     private final String COMMON_RATE_REFUND_CLASS = IOrdersProvider.ORDERS_ACT_COMMON_REFUND_LIST;
     private final String COMMON_DAY_COLLECT_CLASS = IOrdersProvider.ORDERS_ACT_DAY_COMMON_LIST;
+    private final String COMMON_CARD_CUS_CLASS = IOrdersProvider.ORDERS_ACT_COMMON_CARD_CUS_LIST;
+    private final String COMMON_CARD_STAFF_CLASS = IOrdersProvider.ORDERS_ACT_COMMON_CARD_STAFF_LIST;
+    private final String COMMON_CARD_ACTIVE_CLASS = IOrdersProvider.ORDERS_ACT_COMMON_CARD_ACTICVE_LIST;
     private OrdersDetialResp detialsBean;
     private final String DETIAL_CLASS =IOrdersProvider.ORDERS_ACT_ORDER_DETIALS_LIST;
     private RefundListSResp refund_beanS;
@@ -72,6 +77,7 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
     private SStaffCollectResp staff_Collect_Bean;
     private OrderSettleResp settlement_bean;
     private StaffListResp staff_search_bean;
+    //TODO count=1
     private int count = 10;
     private String flag;
     private String inner_flag;  //员工二维码入口表示，用于区分员工列表入口是员工二维码进入还是正常菜单功能进入
@@ -90,6 +96,15 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
     private CommonRateViewHolder commonRateViewHolder;
     private CommonRefundViewHolder commonRefundViewHolder;
     private CommonDayCollectHolder commonDayCollectViewHolder;
+    private CommonCardCusListViewHolder commonCardCusListViewHolder;
+    private CommonCardActiveAlListViewHolder commonCardActiveListViewHolder;
+
+    public CommonListRecAdapter(Context context, OrderSettleResp orderSettleResp, String flag, int layout) {
+        this.context = context;
+        this.layout = layout;
+        this.flag = flag;
+        this.settlement_bean = orderSettleResp;
+    }
 
     public boolean isBind() {
         return isBind;
@@ -221,6 +236,15 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
             case SHOP_CLASS:
                 merchantListViewHolder.bind(position);
                 break;
+            case COMMON_CARD_CUS_CLASS:
+                commonCardCusListViewHolder.bind(position);
+                break;
+            case COMMON_CARD_STAFF_CLASS:
+                commonCardCusListViewHolder.bind(position);
+                break;
+            case COMMON_CARD_ACTIVE_CLASS:
+                commonCardActiveListViewHolder.bind(position);
+                break;
             case STAFF_SEARCH_CLASS:
                 staffListViewHolder.bind(position);
                 break;
@@ -338,6 +362,42 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
                 }
                 merchantListViewHolder .setIsRecyclable(false);
                 return merchantListViewHolder;
+
+            case COMMON_CARD_CUS_CLASS:
+//                KLog.i(viewType);
+                if (viewType == ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal()) {
+                    commonCardCusListViewHolder = new CommonCardCusListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(layout, parent, false),
+                            shop_bean, context);
+                } else {
+                    commonCardCusListViewHolder = new CommonCardCusListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_filter_item_last, parent, false),
+                            shop_bean, context);
+                }
+                commonCardCusListViewHolder.setIsRecyclable(false);
+                return commonCardCusListViewHolder;
+
+            case COMMON_CARD_STAFF_CLASS:
+//                KLog.i(viewType);
+                if (viewType == ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal()) {
+                    commonCardCusListViewHolder = new CommonCardCusListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(layout, parent, false),
+                            staff_search_bean, context);
+                } else {
+                    commonCardCusListViewHolder = new CommonCardCusListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_filter_item_last, parent, false),
+                            staff_search_bean, context);
+                }
+                commonCardCusListViewHolder.setIsRecyclable(false);
+                return commonCardCusListViewHolder;
+
+            case COMMON_CARD_ACTIVE_CLASS:
+//                KLog.i(viewType);
+                if (viewType == ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal()) {
+                    commonCardActiveListViewHolder = new CommonCardActiveAlListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(layout, parent, false),
+                            settlement_bean, context);
+                } else {
+                    commonCardActiveListViewHolder = new CommonCardActiveAlListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.cus_user_allcoate_new_last_item, parent, false),
+                            settlement_bean, context);
+                }
+                commonCardActiveListViewHolder.setIsRecyclable(false);
+                return commonCardActiveListViewHolder;
             case STAFF_SEARCH_CLASS:
                 if (viewType == ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal()) {
                     staffListViewHolder = new StaffListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(layout, parent, false),
@@ -345,6 +405,7 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
                 } else {
                     staffListViewHolder = new StaffListViewHolder((ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_staff_last_item, parent, false),
                             staff_search_bean, inner_flag, context);
+                    KLog.i("last");
                 }
                 staffListViewHolder .setIsRecyclable(false);
                 return staffListViewHolder;
@@ -430,6 +491,29 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
                 } else {
                     return ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal();
                 }
+            case COMMON_CARD_CUS_CLASS:
+//                KLog.i(position+">"+count+"&&"+position +"==" +(shop_bean.getModel().size() - 1));
+//                KLog.i((position > count) +"&&"+(position == shop_bean.getModel().size() - 1));
+                if (position > count && position == shop_bean.getModel().size() - 1) {
+                    return ITEM_TYPE.ITEM_TYPE_LAST.ordinal();
+                } else {
+                    return ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal();
+                }
+            case COMMON_CARD_STAFF_CLASS:
+
+                if (position > count && position == staff_search_bean.getModel().size() - 1) {
+                    return ITEM_TYPE.ITEM_TYPE_LAST.ordinal();
+                } else {
+                    return ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal();
+                }
+
+            case COMMON_CARD_ACTIVE_CLASS:
+
+                if (position > count && position == settlement_bean.getModel().size() - 1) {
+                    return ITEM_TYPE.ITEM_TYPE_LAST.ordinal();
+                } else {
+                    return ITEM_TYPE.ITEM_TYPE_NORMAL.ordinal();
+                }
             case STAFF_SEARCH_CLASS:
                 if (position > count && position == staff_search_bean.getModel().size() - 1) {
                     return ITEM_TYPE.ITEM_TYPE_LAST.ordinal();
@@ -476,9 +560,9 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public int getItemCount() {
+//        KLog.i("itmc");
         switch (this.flag) {
             case ORDERS_CLASS:
-
                 return orders_bean.getModel().size();
             case REFUND_CLASS:
                 return refund_beanS.getModel().size();
@@ -490,6 +574,13 @@ public class CommonListRecAdapter extends RecyclerView.Adapter<RecyclerView.View
             case SHOP_CLASS:
 //                KLog.i(shop_bean.getSys_no().size()+"----------");
                 return shop_bean.getModel().size();
+            case COMMON_CARD_CUS_CLASS:
+//                KLog.i(shop_bean.getSys_no().size()+"----------");
+                return shop_bean.getModel().size();
+            case COMMON_CARD_STAFF_CLASS:
+                return staff_search_bean.getModel().size();
+            case COMMON_CARD_ACTIVE_CLASS:
+                return settlement_bean.getModel().size();
             case STAFF_SEARCH_CLASS:
                 return staff_search_bean.getModel().size();
             case SETTLEMENT_CLASS:

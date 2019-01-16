@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="2dp"
+    android:background="@drawable/blue_small_coner_shape"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/margin_10dp"
+    android:paddingTop="@dimen/margin_5dp"
+    android:paddingRight="@dimen/margin_10dp"
+    android:paddingBottom="@dimen/margin_5dp">
+
+    <TextView
+        android:id="@+id/tv_cus_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="商户商户商户asdassssssssssssssssssssssssssssssssssss"
+        android:textColor="@color/black_color_text"
+        android:textSize="@dimen/text_size_12sp" />
+
+    <TextView
+        android:id="@+id/tv_cus_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:text="1321321321"
+        android:textColor="@color/blue_color_text"
+        android:textSize="14sp" />
+</LinearLayout>

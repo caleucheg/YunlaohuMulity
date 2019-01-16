@@ -2,6 +2,7 @@ package com.yang.yunwang.home.mainhome;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.LocalActivityManager;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,9 +10,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -25,7 +26,10 @@ import com.jaeger.library.StatusBarUtil;
 import com.joker.api.Permissions4M;
 import com.joker.api.wrapper.ListenerWrapper;
 import com.joker.api.wrapper.Wrapper;
+import com.kw.rxbus.RxBus;
 import com.socks.library.KLog;
+import com.yang.yunwang.base.busevent.LoginOutEvent;
+import com.yang.yunwang.base.busevent.MainHomeDialogEvent;
 import com.yang.yunwang.base.moduleinterface.module.module3.DycLibIntent;
 import com.yang.yunwang.base.moduleinterface.provider.IHomeProvider;
 import com.yang.yunwang.base.util.CommonShare;
@@ -34,8 +38,13 @@ import com.yang.yunwang.base.view.adapter.CommonFragmentPagerAdapter;
 import com.yang.yunwang.home.R;
 import com.yang.yunwang.home.mainhome.contract.MainhomeContract;
 import com.yang.yunwang.home.mainhome.presenter.MainhomePresenter;
+import com.yang.yunwang.home.mainhome.view.adapter.CommonActivityPagerAdapter;
 
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 @Route(path = IHomeProvider.HOME_ACT_HOME)
 public class MainHomeActivity extends AppCompatActivity implements MainhomeContract.View {
@@ -47,11 +56,18 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
     private MyBroadcast broadcastReceiver;
     private MainhomeContract.Presenter mainHomePresenter;
     private boolean isRecivePush = false;
+    private LocalActivityManager manager;
+    private CommonFragmentPagerAdapter commonFragmentPagerAdapter;
+    private Disposable isDis;
+    private Disposable isDis2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_staffhome);
+        manager = new LocalActivityManager(this, true);
+        manager.dispatchCreate(savedInstanceState);
+
         StatusBarUtil.setColorNoTranslucent(this, getResources().getColor(com.yang.yunwang.base.R.color.black_color));
         init();
         mainHomePresenter.getServiceVersionCode();
@@ -59,16 +75,55 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
         KLog.i("Login_type", ConstantUtils.CUSTOMERS_TYPE + "----" + ConstantUtils.STAFF_TYPE);
         initData();
         initListener();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setTitle(this.getResources().getString(R.string.alert_title));
+        progressDialog.setMessage(this.getResources().getString(R.string.orders_search_waitting));
     }
 
     private void init() {
         viewPager = (ViewPager) findViewById(R.id.viewpager_staff);
         tabLayout = (TabLayout) findViewById(R.id.tab_staff);
-        new MainhomePresenter(this, this);
+        new MainhomePresenter(this, this, manager);
         broadcastReceiver = new MyBroadcast();
         IntentFilter filter = new IntentFilter("com.yunwang.temp");
         registerReceiver(broadcastReceiver, filter);
-        mainHomePresenter.initData();
+//        mainHomePresenter.initData();
+
+        initEventBus();
+    }
+
+    private void initEventBus() {
+        isDis = RxBus.getInstance().register(MainHomeDialogEvent.class, AndroidSchedulers.mainThread(), new Consumer<MainHomeDialogEvent>() {
+            @Override
+            public void accept(MainHomeDialogEvent mainHomeDialogEvent) {
+                KLog.i("mainHomeDialogEvent" + mainHomeDialogEvent.isShowDialpg());
+                if (mainHomeDialogEvent.isShowDialpg()) {
+                    showDialog();
+                } else {
+                    dismissDialog();
+                }
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                KLog.i(throwable.getMessage());
+            }
+        });
+        isDis2 = RxBus.getInstance().register(LoginOutEvent.class, AndroidSchedulers.mainThread(), new Consumer<LoginOutEvent>() {
+            @Override
+            public void accept(LoginOutEvent mainHomeDialogEvent) {
+                KLog.i(mainHomeDialogEvent.isLogunOut());
+                if (mainHomeDialogEvent.isLogunOut()) {
+                    MainHomeActivity.this.finish();
+                }
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                KLog.i(throwable.getMessage());
+            }
+        });
     }
 
     private void initData() {
@@ -148,6 +203,7 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
             @Override
             public void onPageSelected(int position) {
                 tabLayout.getTabAt(position).select();
+                KLog.i(position + "position----home");
                 Intent intent = new Intent("pageChange");
                 intent.putExtra("position", position);
                 LocalBroadcastManager.getInstance(MainHomeActivity.this)
@@ -162,9 +218,12 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
     }
 
     @Override
-    public void setAdapter(List<String> tab_list, int[] tab_res, List<Fragment> view_list) {
-        CommonFragmentPagerAdapter commonFragmentPagerAdapter = new CommonFragmentPagerAdapter(getSupportFragmentManager(), view_list, tab_list);
-        viewPager.setAdapter(commonFragmentPagerAdapter);
+    public void setAdapter(List<String> tab_list, int[] tab_res, List<android.view.View> view_list) {
+//        commonFragmentPagerAdapter = new CommonFragmentPagerAdapter(getSupportFragmentManager(), view_list, tab_list);
+//        viewPager.setAdapter(commonFragmentPagerAdapter);
+        CommonActivityPagerAdapter activityPagerAdapter = new CommonActivityPagerAdapter(view_list, tab_list);
+        viewPager.setAdapter(activityPagerAdapter);
+//        initPager(tab_list);
         viewPager.setOffscreenPageLimit(4);
         tabLayout.setupWithViewPager(viewPager);
         for (int i = 0; i < view_list.size(); i++) {
@@ -175,20 +234,24 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
 
     @Override
     public void showDialog() {
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setTitle(this.getResources().getString(R.string.alert_title));
-        progressDialog.setMessage(this.getResources().getString(R.string.orders_search_waitting));
-        if (progressDialog != null && this.hasWindowFocus()) {
+        KLog.i(this.hasWindowFocus());
+        if (progressDialog != null && this.hasWindowFocus() && !progressDialog.isShowing()) {
             progressDialog.show();
         }
     }
 
     @Override
     public void dismissDialog() {
-        if (progressDialog != null) {
-            progressDialog.dismiss();
-        }
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
+            }
+        }, 200);
+
     }
 
     public void parseMineFragment() {
@@ -203,9 +266,9 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
             final android.support.v7.app.AlertDialog.Builder dialog = new android.support.v7.app.AlertDialog.Builder(this);
             dialog.setTitle(this.getResources().getString(R.string.alert_title));
             //Done switch version
-            if (DycLibIntent.hasModule()){
+            if (DycLibIntent.hasModule()) {
                 dialog.setMessage(this.getResources().getString(R.string.dexit));
-            }else {
+            } else {
                 dialog.setMessage(this.getResources().getString(R.string.exit));
             }
             dialog.setPositiveButton(this.getResources().getString(R.string.alert_positive), new DialogInterface.OnClickListener() {
@@ -230,6 +293,8 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(broadcastReceiver);
+        RxBus.getInstance().unregister(isDis);
+        RxBus.getInstance().unregister(isDis2);
     }
 
     @Override
@@ -317,12 +382,35 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        KLog.i(resultCode);
+    }
+
+    public void changeData() {
+//        commonFragmentPagerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        manager.dispatchResume();
+        KLog.i("mainResume");
+    }
+
+    @Override
+    protected void onPause() {
+        manager.dispatchPause(this.isFinishing());
+        super.onPause();
+    }
+
     public class MyBroadcast extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
             intent.getBooleanExtra("", false);
-            if(!DycLibIntent.hasModule()){
+            if (!DycLibIntent.hasModule()) {
                 if (!isRecivePush) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainHomeActivity.this);
                     builder.setTitle("连接推送失败");
@@ -337,7 +425,7 @@ public class MainHomeActivity extends AppCompatActivity implements MainhomeContr
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-            }else {
+            } else {
                 MainHomeActivity.this.isRecivePush = true;
             }
 

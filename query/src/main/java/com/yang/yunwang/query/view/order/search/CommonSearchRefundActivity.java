@@ -281,7 +281,7 @@ public class CommonSearchRefundActivity extends BaseActivity implements View.OnC
         if (dateTimePicKDialog == null) {
             dateTimePicKDialog = new DateTimePickDialogUtil(
                     CommonSearchRefundActivity.this, common_editext.getText().toString().trim());
-            dateTimePicKDialog.dateTimePicKDialog(common_editext);
+            dateTimePicKDialog.dateTimePicKDialog(common_editext, common_editext.getText().toString().trim());
             int i = common_editext.getId();
             if (i == R.id.edit_order_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);
@@ -291,7 +291,7 @@ public class CommonSearchRefundActivity extends BaseActivity implements View.OnC
 
             }
         } else {
-            dateTimePicKDialog.dateTimePicKDialog(common_editext);
+            dateTimePicKDialog.dateTimePicKDialog(common_editext, common_editext.getText().toString().trim());
             int i = common_editext.getId();
             if (i == R.id.edit_order_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);

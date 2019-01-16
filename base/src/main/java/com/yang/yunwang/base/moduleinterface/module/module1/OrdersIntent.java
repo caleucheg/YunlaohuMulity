@@ -3,6 +3,7 @@ package com.yang.yunwang.base.moduleinterface.module.module1;
 import android.app.Activity;
 
 import com.yang.yunwang.base.moduleinterface.config.MyBundle;
+import com.yang.yunwang.base.moduleinterface.module.home.HomeIntent;
 import com.yang.yunwang.base.moduleinterface.provider.IHomeProvider;
 import com.yang.yunwang.base.moduleinterface.provider.IOrdersProvider;
 import com.yang.yunwang.base.moduleinterface.router.ModuleManager;
@@ -20,9 +21,11 @@ public class OrdersIntent {
         return ModuleManager.getInstance().hasModule(IOrdersProvider.ORDRES_MAIN_SERVICE);
     }
     public static void orderSearch(MyBundle intent_order_search){
-        MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH)
-                .withBundle(intent_order_search)
-                .navigation();
+//        MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH)
+//                .withBundle(intent_order_search)
+//                .navigation();
+        intent_order_search.put("isFromArouter", true);
+        HomeIntent.homeNewOrderList(intent_order_search);
     }
     public static void orderSearch(){
         MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_ORDER_SEARCH)
@@ -42,6 +45,12 @@ public class OrdersIntent {
 
     public static void orderListnfo(MyBundle bundle){
         MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_ORDER_LIST_INFO)
+                .withBundle(bundle)
+                .navigation();
+    }
+
+    public static void newOrderListnfo(MyBundle bundle) {
+        MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_NEW_ORDER_LIST_INFO)
                 .withBundle(bundle)
                 .navigation();
     }
@@ -220,6 +229,12 @@ public class OrdersIntent {
 
     public static void unRefundSearch(MyBundle intent_order_search) {
         MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_UNREFUND_SEARCH)
+                .withBundle(intent_order_search)
+                .navigation();
+    }
+
+    public static void commonCusCardList(MyBundle intent_order_search) {
+        MyRouter.newInstance(IOrdersProvider.ORDERS_ACT_COMMON_CARD_CUS_LIST)
                 .withBundle(intent_order_search)
                 .navigation();
     }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_color_back_ground"
     android:orientation="vertical"
-    tools:context=".mainhome.view.OrderFilterActivity">
+    tools:context=".mainhome.view.NewOrderFilterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_40dp"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="6dp"
             android:layout_marginRight="@dimen/margin_40dp"
             android:layout_marginBottom="3dp"
             android:background="@drawable/small_coner_shape"
@@ -44,14 +44,17 @@
                 android:layout_marginRight="@dimen/margin_5dp"
                 android:background="@null"
                 android:gravity="left|center_vertical"
-                android:hint="1345654654654654644464674"
+                android:hint="订单号"
                 android:singleLine="true"
+                android:inputType="number"
+                android:maxLength="35"
                 android:textColorHint="@color/label_color"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_40dp"
@@ -81,13 +84,15 @@
                 android:background="@null"
                 android:gravity="left|center_vertical"
                 android:hint="商户登录名"
+                android:maxLength="25"
                 android:singleLine="true"
                 android:textColorHint="@color/label_color"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_display"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_40dp"
@@ -117,10 +122,11 @@
                 android:background="@null"
                 android:gravity="left|center_vertical"
                 android:hint="商户名称"
+                android:maxLength="25"
                 android:singleLine="true"
                 android:textColorHint="@color/label_color"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="12sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -169,10 +175,11 @@
                 android:padding="@dimen/margin_5dp">
 
                 <ImageView
+                    android:id="@+id/iv_wx_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/order_filter_wx_se" />
+                    android:src="@drawable/order_filter_wx_un" />
 
                 <TextView
                     android:id="@+id/tv_wx"
@@ -198,6 +205,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:scaleType="fitXY"
+                    android:id="@+id/iv_zfb_icon"
                     android:src="@drawable/order_filter_zfb_un" />
 
                 <TextView
@@ -206,7 +214,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_5dp"
                     android:text="支付宝"
-                    android:textColor="@color/black_color_text"
+                    android:textColor="@color/grey_color_text_sw"
                     android:textSize="12sp" />
             </LinearLayout>
 
@@ -286,6 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    android:visibility="gone"
                     android:layout_marginRight="@dimen/margin_10dp"
                     android:scaleType="center"
                     android:src="@drawable/icon_clear" />
@@ -357,6 +366,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/margin_10dp"
+                    android:visibility="gone"
                     android:scaleType="center"
                     android:src="@drawable/icon_clear" />
             </RelativeLayout>

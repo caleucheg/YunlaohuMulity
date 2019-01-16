@@ -180,6 +180,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/CustomActivityStyle"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.order.info.NewOrdersListInfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name="com.yang.yunwang.query.view.commoncard.CommonCardCusActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActivityStyle"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

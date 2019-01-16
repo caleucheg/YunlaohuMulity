@@ -194,6 +194,15 @@ public class ScanPresenter implements ScanContract.Presenter {
     }
 
     private void getOrderNo(final boolean isWx, final int total_feeI, final String resultA) {
+        //TODO check permission
+//        if (!isWx && !ConstantUtils.Pay_scan_code_payment_Alipay) {
+//            showDialogDiss("暂无权限");
+//        } else if (isWx && !ConstantUtils.Pay_scan_code_payment) {
+//            showDialogDiss("暂无权限");
+//        } else {
+//
+//        }
+
         isWxNetsType = isWX && TextUtils.equals("108", ConstantUtils.GETED_WX_TYPE);
         isZfbNetsType = (!isWX && TextUtils.equals("109", ConstantUtils.GETED_ZFB_TYPE));
         SnowNoReq accessToken = new SnowNoReq();
@@ -644,6 +653,12 @@ public class ScanPresenter implements ScanContract.Presenter {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                ((ScanResultActivity) view).finish();
+            }
+        });
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
                 ((ScanResultActivity) view).finish();
             }
         });

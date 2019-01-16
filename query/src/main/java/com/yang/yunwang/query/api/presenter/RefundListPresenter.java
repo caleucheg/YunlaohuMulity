@@ -150,6 +150,7 @@ public class RefundListPresenter implements RefundListContract.Presenter {
                     } else if (isRefresh) {
                         bean = value;
                         view.setAdapter(bean, hasRole);
+                        total_count = value.getTotalCount();
                         view.refreshComplete();
                         view.dataNotifyChanged();
                     } else {

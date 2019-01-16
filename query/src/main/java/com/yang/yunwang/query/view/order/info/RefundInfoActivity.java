@@ -3,11 +3,15 @@ package com.yang.yunwang.query.view.order.info;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -34,6 +38,7 @@ import com.yang.yunwang.query.R;
 import com.yang.yunwang.query.api.contract.MerchRefundInfoContract;
 import com.yang.yunwang.query.api.presenter.MerchRefundInfoPresenter;
 
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -222,6 +227,143 @@ public class RefundInfoActivity extends BaseActivity implements View.OnClickList
     }
 
 
+    public static boolean checkDeviceHasNavigationBar(Context context) {
+        boolean hasNavigationBar = false;
+        Resources rs = context.getResources();
+        int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
+        if (id > 0) {
+            hasNavigationBar = rs.getBoolean(id);
+        }
+        try {
+            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
+            Method m = systemPropertiesClass.getMethod("get", String.class);
+            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
+            if ("1".equals(navBarOverride)) {
+                hasNavigationBar = false;
+            } else if ("0".equals(navBarOverride)) {
+                hasNavigationBar = true;
+            }
+        } catch (Exception e) {
+
+        }
+        return hasNavigationBar;
+    }
+
+    @Override
+    public void closeActionSheet() {
+        bottomSheetDialog.dismiss();
+    }
+
+    @Override
+    public void refreshData(String total_FEE, String status, String refund, String refund_count) {
+        edit_money.setText(total_FEE);
+        edit_refund.setText(refund);
+        refundCount.setText(refund_count);
+        KLog.i(status);
+        feeRelase.setText(status);
+        initButton(hasRole, status, total_FEE);
+    }
+
+    @Override
+    public void changStatus() {
+        status_controller.setText(this.getResources().getString(R.string.refunded_status));
+        status_background.setBackground(this.getResources().getDrawable(R.drawable.status_refunded));
+        status_controller.setOnClickListener(null);
+        this.flag = 1;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            if (flag == 1) {
+                //通知刷新
+//                Intent intent = new Intent(this, UnRefundListActivity.class);
+//                this.startActivity(intent);
+                this.setResult(1);
+                this.finish();
+            } else {
+                //通知不刷新
+                this.finish();
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void init(boolean hasRole, boolean b) {
+        if (!b) {
+            Toast.makeText(this, "获取信息失败,请返回重试", Toast.LENGTH_SHORT).show();
+            this.finish();
+        } else {
+            this.hasRole = hasRole;
+            initButton(hasRole, fee, money);
+        }
+    }
+
+    public void initButton(boolean hasRole, String fee, String money) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String cur_time = formatter.format(curDate);
+        if (!hasRole && !edit_order_time.getText().toString().substring(0, 10).equals(cur_time)) {
+            KLog.i("123");
+            KLog.i(fee + "+" + money);
+            if (Double.parseDouble(fee) == 0) {
+                status_controller.setText(context.getResources().getString(R.string.refunded_status));
+                status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refunded));
+                status_controller.setOnClickListener(null);
+            } else {
+                status_controller.setText(context.getResources().getString(R.string.unrefund_error));
+                status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refund_cannot));
+                status_controller.setOnClickListener(null);
+            }
+        } else if (Double.parseDouble(fee) == Double.parseDouble(money)) {
+            status_controller.setText(context.getResources().getString(R.string.unrefund_status));
+            status_background.setBackground(context.getResources().getDrawable(R.drawable.unrefund_controller_background));
+            status_controller.setOnClickListener(RefundInfoActivity.this);
+        } else if (Double.parseDouble(fee) < Double.parseDouble(money) &&
+                Double.parseDouble(fee) > 0) {
+            status_controller.setText(context.getResources().getString(R.string.unrefund_step));
+            status_background.setBackground(context.getResources().getDrawable(R.drawable.unrefund_controller_background));
+            status_controller.setOnClickListener(RefundInfoActivity.this);
+        } else {
+            status_controller.setText(context.getResources().getString(R.string.refunded_status));
+            status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refunded));
+            status_controller.setOnClickListener(null);
+        }
+    }
+
+    @Override
+    public void setPresenter(MerchRefundInfoContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(edit_sys_no.getWindowToken(), 0);
+        }
+    }
+
+    public static int getVirtualBarHeigh(Context context) {
+        int vh = 0;
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        DisplayMetrics dm = new DisplayMetrics();
+        try {
+            @SuppressWarnings("rawtypes")
+            Class c = Class.forName("android.view.Display");
+            @SuppressWarnings("unchecked")
+            Method method = c.getMethod("getRealMetrics", DisplayMetrics.class);
+            method.invoke(display, dm);
+            vh = dm.heightPixels - windowManager.getDefaultDisplay().getHeight();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vh;
+    }
+
     @Override
     public void onClick(View view) {
         int i = view.getId();
@@ -256,7 +398,22 @@ public class RefundInfoActivity extends BaseActivity implements View.OnClickList
                             }
                         }
                     });
-                    view_actionsheet = getLayoutInflater().inflate(R.layout.layout_unrefund_actionsheet, null);
+                    boolean b = checkDeviceHasNavigationBar(this);
+                    if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) && b) {
+                        view_actionsheet = getLayoutInflater().inflate(R.layout.layout_unrefund_actionsheet_up_nvi, null);
+                        View viewBlank = view_actionsheet.findViewById(R.id.view_blank_trans);
+                        ViewGroup.LayoutParams layoutParams = viewBlank.getLayoutParams();
+                        int virtualBarHeigh = getVirtualBarHeigh(this);
+                        if (virtualBarHeigh != 0) {
+                            layoutParams.height = virtualBarHeigh;
+                        } else {
+                            layoutParams.height = 120;
+                        }
+                        viewBlank.setLayoutParams(layoutParams);
+                    } else {
+                        view_actionsheet = getLayoutInflater().inflate(R.layout.layout_unrefund_actionsheet, null);
+                    }
+
                     image_close = (ImageView) view_actionsheet.findViewById(R.id.image_close);
                     edit_controller_code = (EditText) view_actionsheet.findViewById(R.id.edit_unrefund_controller_code);
                     edit_controller_refund = (EditText) view_actionsheet.findViewById(R.id.edit_unrefund_controller_refund);
@@ -381,103 +538,6 @@ public class RefundInfoActivity extends BaseActivity implements View.OnClickList
                 KLog.i("re-click");
             }
 
-        }
-    }
-
-    @Override
-    public void closeActionSheet() {
-        bottomSheetDialog.dismiss();
-    }
-
-    @Override
-    public void refreshData(String total_FEE, String status, String refund, String refund_count) {
-        edit_money.setText(total_FEE);
-        edit_refund.setText(refund);
-        refundCount.setText(refund_count);
-        KLog.i(status);
-        feeRelase.setText(status);
-        initButton(hasRole, status, total_FEE);
-    }
-
-    @Override
-    public void changStatus() {
-        status_controller.setText(this.getResources().getString(R.string.refunded_status));
-        status_background.setBackground(this.getResources().getDrawable(R.drawable.status_refunded));
-        status_controller.setOnClickListener(null);
-        this.flag = 1;
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            if (flag == 1) {
-                //通知刷新
-//                Intent intent = new Intent(this, UnRefundListActivity.class);
-//                this.startActivity(intent);
-                this.setResult(1);
-                this.finish();
-            } else {
-                //通知不刷新
-                this.finish();
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    public void init(boolean hasRole, boolean b) {
-        if (!b) {
-            Toast.makeText(this, "获取信息失败,请返回重试", Toast.LENGTH_SHORT).show();
-            this.finish();
-        } else {
-            this.hasRole = hasRole;
-            initButton(hasRole, fee, money);
-        }
-    }
-
-    public void initButton(boolean hasRole, String fee, String money) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
-        String cur_time = formatter.format(curDate);
-        if (!hasRole && !edit_order_time.getText().toString().substring(0, 10).equals(cur_time)) {
-            KLog.i("123");
-            KLog.i(fee+"+"+money);
-            if (Double.parseDouble(fee)==0){
-                status_controller.setText(context.getResources().getString(R.string.refunded_status));
-                status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refunded));
-                status_controller.setOnClickListener(null);
-            }else{
-                status_controller.setText(context.getResources().getString(R.string.unrefund_error));
-                status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refund_cannot));
-                status_controller.setOnClickListener(null);
-            }
-        } else if (Double.parseDouble(fee) == Double.parseDouble(money)) {
-            status_controller.setText(context.getResources().getString(R.string.unrefund_status));
-            status_background.setBackground(context.getResources().getDrawable(R.drawable.unrefund_controller_background));
-            status_controller.setOnClickListener(RefundInfoActivity.this);
-        } else if (Double.parseDouble(fee) < Double.parseDouble(money) &&
-                Double.parseDouble(fee) > 0) {
-            status_controller.setText(context.getResources().getString(R.string.unrefund_step));
-            status_background.setBackground(context.getResources().getDrawable(R.drawable.unrefund_controller_background));
-            status_controller.setOnClickListener(RefundInfoActivity.this);
-        } else {
-            status_controller.setText(context.getResources().getString(R.string.refunded_status));
-            status_background.setBackground(context.getResources().getDrawable(R.drawable.status_refunded));
-            status_controller.setOnClickListener(null);
-        }
-    }
-
-    @Override
-    public void setPresenter(MerchRefundInfoContract.Presenter presenter) {
-        this.presenter = presenter;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(edit_sys_no.getWindowToken(), 0);
         }
     }
 }

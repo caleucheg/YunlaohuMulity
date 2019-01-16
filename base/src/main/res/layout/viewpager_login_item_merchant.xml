@@ -31,16 +31,20 @@
                 android:layout_marginLeft="@dimen/margin_10dp"
                 android:src="@drawable/login_user_new" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@string/account" />
             <com.yang.yunwang.base.ui.ClearEditText
                 android:id="@+id/edit_merchant_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginLeft="2dp"
                 android:background="@null"
                 android:layout_marginTop="13dp"
                 android:layout_marginRight="@dimen/margin_10dp"
                 android:layout_marginBottom="13dp"
-                android:hint="@string/account"
                 android:inputType="text"
                 android:singleLine="true"
                 android:textColor="@color/black_color"
@@ -77,6 +81,11 @@
                 android:layout_marginLeft="@dimen/margin_10dp"
                 android:src="@drawable/login_password_new" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:text="@string/hint_password" />
             <com.yang.yunwang.base.ui.ClearEditText
                 android:id="@+id/edit_merchant_password"
                 android:layout_width="match_parent"
@@ -84,10 +93,9 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginRight="@dimen/margin_10dp"
                 android:layout_marginBottom="13dp"
-                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginLeft="2dp"
                 android:background="@null"
                 android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`!@#$%^*()_\\/+=-`,.;:[]{}\\\?|'~&lt;&gt;&amp;"
-                android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:textColor="@color/black_color"
                 android:textColorHint="@color/hint_color"

@@ -148,6 +148,7 @@ public class StaffListActivity extends BaseActivity implements StaffListContract
 
     @Override
     public void setAdapter(StaffListResp bean, String inner_flag) {
+        KLog.i(inner_flag);
         commonListRecAdapter = new CommonListRecAdapter(this, bean, inner_flag, IOrdersProvider.ORDERS_ACT_STAFF_LIST, R.layout.layout_stafflist_item);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);

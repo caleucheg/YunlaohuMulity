@@ -43,30 +43,45 @@ public class LoginViewPagerAdapter extends PagerAdapter implements ViewItemData 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         //0服务商，1员工
+        boolean isRem = CommonShare.getBooleanRememberPwd(context);
+        String name = CommonShare.getRememberName(context);
+        int pos = CommonShare.getRememberPos(context);
         if (position == 0) {
             KLog.i(1 + "posssssss");
             edit_merchant_user = (EditText) mViewList.get(position).findViewById(R.id.edit_merchant_user);
             edit_merchant_password = (EditText) mViewList.get(position).findViewById(R.id.edit_merchant_password);
+            if (pos == position) {
+                if (!TextUtils.isEmpty(name)) {
+                    edit_merchant_user.setText(name);
+                }
+            }
         } else {
             edit_staff_user = (EditText) mViewList.get(position).findViewById(R.id.edit_staff_user);
             edit_staff_password = (EditText) mViewList.get(position).findViewById(R.id.edit_staff_password);
+            if (pos == position) {
+                if (!TextUtils.isEmpty(name)) {
+                    edit_staff_user.setText(name);
+                }
+            }
         }
         container.addView(mViewList.get(position));//添加页卡
-        boolean isRem = CommonShare.getBooleanRememberPwd(context);
+
         KLog.i("-aaaaaaaaaaaa-111");
+
         if (isRem) {
-            int pos = CommonShare.getRememberPos(context);
             KLog.i("-aaaaaaaaaaaa-111" + pos);
             if (pos == 0 || pos == 1) {
-                String name = CommonShare.getRememberName(context);
+
                 String pwd = CommonShare.getRememberPwd(context);
                 KLog.i(name + "-aaaaaaaaaaaa-" + pwd + "--" + pos);
 //                KLog.i((!TextUtils.isEmpty(name))&&(TextUtils.isEmpty(pwd)));
                 if ((!TextUtils.isEmpty(name)) && (!TextUtils.isEmpty(pwd))) {
+
                     setNameAndPwd(name, pwd, pos);
                 }
             }
         }
+
         return mViewList.get(position);
     }
 
@@ -99,14 +114,12 @@ public class LoginViewPagerAdapter extends PagerAdapter implements ViewItemData 
     public void setNameAndPwd(String name, String pwd, int pos) {
         if (pos == 0) {
             if (edit_merchant_user != null && edit_merchant_password != null) {
-                KLog.i("-aaaaaaaaaaaa-1231");
-                edit_merchant_user.setText(name);
+
                 edit_merchant_password.setText(pwd);
             }
         } else if (pos == 1) {
             if (edit_staff_user != null && edit_staff_password != null) {
-                KLog.i("-aaaaaaaaaaaa-12312");
-                edit_staff_user.setText(name);
+
                 edit_staff_password.setText(pwd);
             }
         }

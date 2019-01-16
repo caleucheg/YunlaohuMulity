@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/white_color"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
 
         <RelativeLayout
             android:background="@color/white_color"
+            android:id="@+id/rl_main_page"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/rel_login_logo_back"
@@ -29,19 +29,7 @@
             </RelativeLayout>
 
 
-            <!--<android.support.design.widget.TabLayout-->
-            <!--android:id="@+id/tab_login"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@+id/rel_login_logo_back"-->
-            <!--app:tabBackground="@color/blue_color"-->
-            <!--app:tabGravity="fill"-->
-            <!--app:tabIndicatorColor="@null"-->
-            <!--app:tabMode="fixed"-->
-            <!--app:tabPaddingEnd="0dp"-->
-            <!--app:tabPaddingStart="0dp"-->
-            <!--app:tabSelectedTextColor="@color/black_color"-->
-            <!--app:tabTextColor="@color/white_color" />-->
+
 
             <com.yang.yunwang.base.ui.SlidingTabLayout
                 android:id="@+id/tab_login"
@@ -72,15 +60,36 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <CheckBox
-                    android:id="@+id/cb_remember_p"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="@dimen/margin_20dp"
-                    android:layout_marginBottom="@dimen/margin_5dp"
-                    android:text="@string/remember_pwd"
-                    android:textColor="@color/grey_error" />
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cb_remember_p"
+                        style="@style/MyCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="@dimen/margin_20dp"
+                        android:layout_marginBottom="@dimen/margin_5dp"
+                        android:text="@string/remember_pwd"
+                        android:textColor="@color/grey_error"
+                        android:visibility="visible" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cb_remember_p1"
+                        style="@style/MyCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="@dimen/margin_20dp"
+                        android:layout_marginBottom="@dimen/margin_5dp"
+                        android:text="@string/remember_pwd"
+                        android:textColor="@color/grey_error"
+                        android:visibility="gone" />
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/btn_login"
@@ -96,36 +105,36 @@
                     android:textSize="@dimen/text_size_16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ll_btn"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="45dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/margin_100dp"
-                    android:layout_height="37dp"
-                    android:src="@drawable/login_buttom_icon" />
-
-                <TextView
-                    android:id="@+id/text_change_y"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/change_yh" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:text="@string/yh_cop" />
-            </LinearLayout>
         </RelativeLayout>
-    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="2dp">
+
+        <ImageView
+            android:layout_width="@dimen/margin_100dp"
+            android:layout_height="37dp"
+            android:src="@drawable/login_buttom_icon" />
+
+        <TextView
+            android:id="@+id/text_change_y"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/change_yh" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/yh_cop" />
+    </LinearLayout>
 
 </RelativeLayout>

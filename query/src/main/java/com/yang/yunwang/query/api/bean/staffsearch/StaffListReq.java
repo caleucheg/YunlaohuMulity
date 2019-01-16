@@ -14,6 +14,26 @@ public class StaffListReq {
     private PagingInfo mPagingInfo;
     @SerializedName("PhoneNumber")
     private String mPhoneNumber;
+    @SerializedName("DisplayName")
+    private String mDisplayName;
+    @SerializedName("SortingInfo")
+    private SortingInfo mSortingInfo;
+
+    public SortingInfo getSortingInfo() {
+        return mSortingInfo;
+    }
+
+    public void setSortingInfo(SortingInfo sortingInfo) {
+        mSortingInfo = sortingInfo;
+    }
+
+    public String getDisplayName() {
+        return mDisplayName;
+    }
+
+    public void setDisplayName(String mDisplayName) {
+        this.mDisplayName = mDisplayName;
+    }
 
     public String getCustomerServiceSysNo() {
         return mCustomerServiceSysNo;

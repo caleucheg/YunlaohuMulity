@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/check_box_green</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,7 +16,7 @@
     <style name="CustomActivityStyle" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/black_color</item>
         <item name="colorPrimaryDark">@color/black_color</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/check_box_green</item>
         <item name="android:textCursorDrawable">@drawable/color_cursor</item>
     </style>
 
@@ -41,4 +41,11 @@
     <style name="OnePixelActivity" parent="android:Theme.Holo.Light.NoActionBar">//无标题
         <item name="android:windowIsTranslucent">true</item>//透明
     </style>
+
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/check_box_green</item>
+        <item name="colorControlActivated">@color/white_color</item>
+    </style>
+
+
 </resources>

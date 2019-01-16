@@ -43,4 +43,7 @@
     <color name="grey_color_text">#999999</color>
     <color name="grey_color_text_sw">#888888</color>
     <color name="grey_color_back_ground">#f5f4f9</color>
+    <color name="grey_color_line">#d1d1d1</color>
+    <color name="report_grey_color_text">#bab7c2</color>
+    <color name="check_box_green">#00a0e9</color>
 </resources>

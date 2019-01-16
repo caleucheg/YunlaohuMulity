@@ -254,7 +254,7 @@ public class StaffSignFragment extends Fragment implements View.OnClickListener,
         if (dateTimePicKDialog == null) {
             dateTimePicKDialog = new DateTimePickDialogUtil(
                     getActivity(), common_editext.getText().toString().trim());
-            dateTimePicKDialog.dateTimePicKDialog(common_editext);
+            dateTimePicKDialog.dateTimePicKDialog(common_editext, common_editext.getText().toString().trim());
             int i = common_editext.getId();
             if (i == R.id.edit_order_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);
@@ -264,7 +264,7 @@ public class StaffSignFragment extends Fragment implements View.OnClickListener,
 
             }
         } else {
-            dateTimePicKDialog.dateTimePicKDialog(common_editext);
+            dateTimePicKDialog.dateTimePicKDialog(common_editext, common_editext.getText().toString().trim());
             int i = common_editext.getId();
             if (i == R.id.edit_order_start_time) {
                 image_clear_starttime.setVisibility(View.VISIBLE);

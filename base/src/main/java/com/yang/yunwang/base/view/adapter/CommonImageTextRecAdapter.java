@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.socks.library.KLog;
 import com.yang.yunwang.base.R;
@@ -125,7 +124,7 @@ public class CommonImageTextRecAdapter extends RecyclerView.Adapter<CommonImageT
                         }
 
                     } else {
-                        Toast.makeText(context, "暂无权限", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "暂无权限", Toast.LENGTH_SHORT).show();
                     }
                 }
             } else if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
